@@ -34,11 +34,15 @@ public class ScrollViewManager : MonoBehaviour
         }
 
         AddButtonsToScrollView();
+        LoadSelectedTowers(); // 선택된 타워 로드
 
         // 모든 TowerSetting 버튼들을 비활성화
         foreach (var button in towerSettingButtons)
         {
-            button.gameObject.SetActive(false);
+            if (!activeButtonTexts.Contains(button.GetComponentInChildren<TMP_Text>().text))
+            {
+                button.gameObject.SetActive(false);
+            }
             button.onClick.AddListener(() => OnTowerSettingButtonClick(button));
         }
     }
@@ -127,6 +131,26 @@ public class ScrollViewManager : MonoBehaviour
             activeButtonTexts.Remove(buttonText.text); // 활성화된 버튼 텍스트 제거
             // 선택된 타워를 GameData에서 제거
             GameData.instance.selectedTowers.RemoveAll(tower => tower.name == buttonText.text);
+        }
+    }
+
+    void LoadSelectedTowers()
+    {
+        foreach (var tower in GameData.instance.selectedTowers)
+        {
+            string buttonText = tower.name;
+            activeButtonTexts.Add(buttonText);
+
+            Button towerButton = FindInactiveTowerButton();
+            if (towerButton != null)
+            {
+                towerButton.gameObject.SetActive(true);
+                TMP_Text towerButtonText = towerButton.GetComponentInChildren<TMP_Text>();
+                if (towerButtonText != null)
+                {
+                    towerButtonText.text = buttonText;
+                }
+            }
         }
     }
 }
