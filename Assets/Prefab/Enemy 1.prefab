@@ -213,6 +213,7 @@ MonoBehaviour:
   damage: 1
   spawnTime: 1
   score: 1
+  expItemPrefab: {fileID: 4165671403678064672, guid: fe9873ab9bcf441b28bd992699293fb8, type: 3}
   animCon:
   - {fileID: 22100000, guid: 050556270436d4f4288557291a1a99c0, type: 2}
   scanner: {fileID: 0}

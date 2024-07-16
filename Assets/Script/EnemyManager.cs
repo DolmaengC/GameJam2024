@@ -10,6 +10,7 @@ public class EnemyManager : MonoBehaviour
     public float damage;
     public float spawnTime;
     public int score;
+    public GameObject expItemPrefab; // 경험치 아이템 프리팹 참조 추가
     public RuntimeAnimatorController[] animCon;
 
     bool isLive;
@@ -28,7 +29,6 @@ public class EnemyManager : MonoBehaviour
         scanner = GetComponent<Scanner>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (!isLive) return;
@@ -76,8 +76,17 @@ public class EnemyManager : MonoBehaviour
 
     void Dead()
     {
+        // 경험치 아이템 생성
+        if (expItemPrefab != null)
+        {
+            Instantiate(expItemPrefab, transform.position, Quaternion.identity);
+        }
+        
         gameObject.SetActive(false);
         GameManager.instance.IncreaseScore(score);
+
+        
+
         // isLive = false;
         // anim.SetTrigger("dead");
         // Destroy(gameObject, 1.5f);

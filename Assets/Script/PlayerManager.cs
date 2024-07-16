@@ -49,13 +49,40 @@ public class PlayerManager : MonoBehaviour
             // Dead();
         }
     }
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.CompareTag("ExpItem")){
-            currentEXP += 1;
-            UpdateCoin();
-            Destroy(other.gameObject);
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("ExpItem"))
+        {
+            float distance = Vector3.Distance(transform.position, other.transform.position);
+            float pickupRange = 1.0f; // 원하는 아이템 획득 범위 설정
+
+            if (distance <= pickupRange)
+            {
+                string itemName = other.gameObject.name;
+                string expValueString = itemName.Replace("ExpItem_", "").Replace("(Clone)", "").Trim();
+                int expValue;
+                if (int.TryParse(expValueString, out expValue))
+                {
+                    currentEXP += expValue;
+                }
+                else
+                {
+                    Debug.LogWarning("Invalid EXP value in item name: " + other.gameObject.name);
+                }
+
+                if (currentEXP >= maxEXP)
+                {
+                    level++;
+                    currentEXP -= maxEXP;
+                    maxEXP = level * 10;
+                    UpdateLevel();
+                }
+                UpdateEXP();
+                Destroy(other.gameObject);
+            }
         }
     }
+
 
     private void initializeStatus() {
         coin = 0;
