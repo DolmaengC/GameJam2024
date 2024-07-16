@@ -24,6 +24,11 @@ public class UIManager : MonoBehaviour
 
     public GameObject EnhanceTowerBtns;
     public Button BackBtn_1;
+    public Button EnhanceTower1Button;
+    public Button EnhanceTower2Button;
+    public Button EnhanceTower3Button;
+    public Button EnhanceTower4Button;
+    public Button EnhanceTower5Button; 
     public GameObject EnhancePlayerBtns;
     public Button BackBtn_2;
 
@@ -37,9 +42,12 @@ public class UIManager : MonoBehaviour
         BackBtn_0.onClick.AddListener(OnBackButtonClicked);
         BackBtn_1.onClick.AddListener(OnBackButtonClicked);
         BackBtn_2.onClick.AddListener(OnBackButtonClicked);
-
+        EnhanceTower1Button.onClick.AddListener(OnEnhanceStateButtonClicked); 
+        EnhanceTower2Button.onClick.AddListener(OnEnhanceStateButtonClicked); 
+        EnhanceTower3Button.onClick.AddListener(OnEnhanceStateButtonClicked); 
+        EnhanceTower4Button.onClick.AddListener(OnEnhanceStateButtonClicked); 
+        EnhanceTower5Button.onClick.AddListener(OnEnhanceStateButtonClicked); 
         
-
         mainCamera = Camera.main;
         coin = 0f;
         UpdateCoin();
@@ -172,5 +180,14 @@ public class UIManager : MonoBehaviour
         selectedItem = null;
         selectedItemIdx = -1;
         isPlacingItem = false;
+    }
+
+    // 상태를 증가시키는 버튼 클릭 시 호출되는 메서드
+    void OnEnhanceStateButtonClicked()
+    {
+        foreach (var tower in GameData.instance.selectedTowers)
+        {
+            TowerManager.IncreaseState(tower.name);
+        }
     }
 }
