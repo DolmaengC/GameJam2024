@@ -212,8 +212,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  prefabId: 0
+  attackType: 0
+  bullet: {fileID: 0}
+  bulletPool: []
   damage: 0
   count: 2
   speed: 0
@@ -231,7 +232,7 @@ GameObject:
   - component: {fileID: 1039659205993977930}
   - component: {fileID: 4405579463082176235}
   - component: {fileID: 7831665696813597090}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MainPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

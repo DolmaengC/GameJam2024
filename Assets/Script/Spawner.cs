@@ -1,63 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Scripting;
 
 public class Spawner : MonoBehaviour
 {
     public Transform[] spawnPoints;
-    public SpawnData[] spawnData;
+    public GameObject[] enemyList;
+    public List<GameObject>[] enemyPools;
     int level;
     float timer;
-    void Awake(){
+
+    void Awake()
+    {
         spawnPoints = GetComponentsInChildren<Transform>();
+        enemyPools = new List<GameObject>[enemyList.Length];
+        for (int i = 0; i < enemyList.Length; i++)
+        {
+            enemyPools[i] = new List<GameObject>();
+        }
     }
 
     void Update()
     {
         timer += Time.deltaTime;
-        level = Mathf.Min(Mathf.FloorToInt(GameAdministorator.instance.gametime / 5f), spawnData.Length - 1);
+        level = Mathf.Min(Mathf.FloorToInt(timer / 10), enemyList.Length); // level은 enemyList의 길이를 넘지 않도록 제한
 
-        if(timer > spawnData[level].spawnTime){
+        // 올바른 구문으로 수정
+        if (timer > enemyList[level].GetComponent<EnemyManager>().spawnTime)
+        {
             timer = 0;
             Spawn();
         }
-
-        if(spawnData[level].spriteType == 0){
-            spawnData[level].spawnTime = 3;
-            spawnData[level].health = 10;
-            spawnData[level].speed = 1.2f;
-        }else if(spawnData[level].spriteType == 1){
-            spawnData[level].spawnTime = 2;
-            spawnData[level].health = 15;
-            spawnData[level].speed = 2.2f;
-        }else if(spawnData[level].spriteType == 2){
-            spawnData[level].spawnTime = 2;
-            spawnData[level].health = 20;
-            spawnData[level].speed = 2.4f;
-        }else if(spawnData[level].spriteType == 3){
-            spawnData[level].spawnTime = 1.5f;
-            spawnData[level].health = 35;
-            spawnData[level].speed = 2f;
-        }else if(spawnData[level].spriteType == 4){
-            spawnData[level].spawnTime = 4f;
-            spawnData[level].health = 55;
-            spawnData[level].speed = 2.7f;
-        }
     }
 
-    void Spawn(){
-        GameObject enemy = GameAdministorator.instance.pool.Get(0);
+    void Spawn()
+    {
+        GameObject enemy = GenerateEnemy(level);
         enemy.transform.position = spawnPoints[Random.Range(1, spawnPoints.Length)].position;
-        enemy.GetComponent<EnemyManager>().Init(spawnData[level]);
     }
-}   
 
-[System.Serializable]
-public class SpawnData
-{
-    public float spawnTime;
-    public int spriteType;
-    public int health;
-    public float speed;
+    public GameObject GenerateEnemy(int index)
+    {
+        GameObject select = null;
+
+        foreach (GameObject item in enemyPools[index])
+        {
+            if (!item.activeSelf)
+            {
+                select = item;
+                select.SetActive(true);
+                break;
+            }
+        }
+
+        if (select == null)
+        {
+            select = Instantiate(enemyList[index], transform);
+            enemyPools[index].Add(select);
+        }
+
+        return select;
+    }
 }

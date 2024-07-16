@@ -15,7 +15,7 @@ public class PoolManager : MonoBehaviour
         Debug.Log(pools.Length);
     }
 
-    public GameObject Get(int index){
+    public GameObject generateEnemy(int index){
         GameObject select = null;
 
         foreach(GameObject item in pools[index]){
