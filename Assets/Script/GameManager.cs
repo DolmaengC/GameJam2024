@@ -8,8 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    
-    // public PlayerMovement playerMovement;
+
     public float gametime;
     public float maxGameTime = 5 * 5f;
     public TMP_Text timerText;
@@ -18,6 +17,10 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
     public Button gameClearOKButton;
     public Button gameOverOKButton;
+    public GameObject gamePausePanel;
+    public Button startButton;
+    public Button restartButton; // Restart 버튼 추가
+    public Button exitButton;
     public int score;
     public TMP_Text scoreText;
     bool isPaused;
@@ -39,6 +42,9 @@ public class GameManager : MonoBehaviour
         UpdateScore();
         gameClearOKButton.onClick.AddListener(OnGoHomeButtonClicked);
         gameOverOKButton.onClick.AddListener(OnGoHomeButtonClicked);
+        startButton.onClick.AddListener(TogglePause);
+        restartButton.onClick.AddListener(OnRestartButtonClicked); // Restart 버튼에 리스너 추가
+        exitButton.onClick.AddListener(OnGoHomeButtonClicked);
     }
 
     void Update()
@@ -98,12 +104,18 @@ public class GameManager : MonoBehaviour
 
     void OnGoHomeButtonClicked()
     {
-        SceneManager.LoadScene("HomeScene"); 
+        SceneManager.LoadScene("HomeScene");
+    }
+
+    void OnRestartButtonClicked()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void TogglePause()
     {
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0 : 1;
+        gamePausePanel.SetActive(isPaused);
     }
 }
