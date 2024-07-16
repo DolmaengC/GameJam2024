@@ -8,6 +8,8 @@ public class TowerManager : MonoBehaviour
     public WeaponManager weaponManager;
     public float coolTime;
     public float timer;
+    public int buildCost;
+    public int enhanceCost;
 
     // Start is called before the first frame update
     void Awake()

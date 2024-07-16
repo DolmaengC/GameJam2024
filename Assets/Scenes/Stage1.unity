@@ -423,18 +423,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 8091740956643607109, guid: 745bbfeab48ec9843bade076224bcdd1, type: 3}
+  - {fileID: 3610146269770174094, guid: 0b25993be9d997b4daa838d22eec73d9, type: 3}
+  - {fileID: 2347489144147693011, guid: 483aed6a14b515e45884063ee063c69a, type: 3}
+  - {fileID: 1956386582275742733, guid: 0f1f80990dc5f7a4494c119358a43157, type: 3}
+  - {fileID: 366886714991690043, guid: 6fd7033ed6b956742a878c93e6c39491, type: 3}
   - {fileID: 3129968415057631077, guid: f2caaef06bc504bb6b06595a5601e97d, type: 3}
-  - {fileID: 3129968415057631077, guid: f2caaef06bc504bb6b06595a5601e97d, type: 3}
-  - {fileID: 3129968415057631077, guid: f2caaef06bc504bb6b06595a5601e97d, type: 3}
-  - {fileID: 3129968415057631077, guid: f2caaef06bc504bb6b06595a5601e97d, type: 3}
-  coin: {fileID: 0}
+  coin: 0
+  coinText: {fileID: 1297347659}
   storeMenuBtns: {fileID: 1108515080}
   CreateTowerBtn: {fileID: 1145837070}
   EnhanceTowerBtn: {fileID: 1473104081}
   EnhancePlayerBtn: {fileID: 1884596499}
   createTowerBtns: {fileID: 1247881648}
   BackBtn_0: {fileID: 2130932261}
+  createTowerBtnTexts:
+  - {fileID: 1439437666}
+  - {fileID: 452916525}
+  - {fileID: 2048523857}
+  - {fileID: 1107203277}
+  - {fileID: 252807533}
   EnhanceTowerBtns: {fileID: 423901257}
   BackBtn_1: {fileID: 2130932261}
   EnhancePlayerBtns: {fileID: 423901257}
@@ -7065,13 +7072,11 @@ MonoBehaviour:
   currentHP: 0
   maxEXP: 0
   currentEXP: 0
-  coin: 0
   HPText: {fileID: 1326369205}
   EXPText: {fileID: 830586038}
   levelText: {fileID: 1144032949}
   HPBar: {fileID: 1429073440}
   EXPBar: {fileID: 359648453}
-  coinText: {fileID: 1297347659}
 --- !u!1 &513368527
 GameObject:
   m_ObjectHideFlags: 0
