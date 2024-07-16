@@ -11,7 +11,8 @@ public class UIManager : MonoBehaviour
     private GameObject selectedItem;
     private int selectedItemIdx = -1;  // 선택된 아이템 인덱스를 저장할 변수
     private bool isPlacingItem = false;
-    public TMP_Text coin;
+    public float coin;
+    public TMP_Text coinText;
     public GameObject storeMenuBtns;
     public Button CreateTowerBtn;
     public Button EnhanceTowerBtn;
@@ -19,6 +20,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject createTowerBtns;
     public Button BackBtn_0;
+    public TMP_Text[] createTowerBtnTexts;
+
     public GameObject EnhanceTowerBtns;
     public Button BackBtn_1;
     public GameObject EnhancePlayerBtns;
@@ -35,7 +38,30 @@ public class UIManager : MonoBehaviour
         BackBtn_1.onClick.AddListener(OnBackButtonClicked);
         BackBtn_2.onClick.AddListener(OnBackButtonClicked);
 
+        
+
         mainCamera = Camera.main;
+        coin = 0f;
+        UpdateCoin();
+        InitializeTowerButtons();
+    }
+
+    void InitializeTowerButtons()
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (i < createTowerBtnTexts.Length)
+            {
+                GameObject item = items[i];
+                TowerManager towerManager = item.GetComponent<TowerManager>();
+
+                if (towerManager != null)
+                {
+                    int buildCost = towerManager.buildCost;
+                    createTowerBtnTexts[i].text = item.name + ": " + buildCost.ToString();
+                }
+            }
+        }
     }
 
     void OnCreateTowerBtnClicked()
@@ -82,21 +108,58 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        coin += 0.05f;
+        UpdateCoin();
+    }
+
+    public void UpdateCoin()
+    {
+        coinText.text = Mathf.FloorToInt(coin).ToString();
+    }
+
     public void SelectItem(int itemIndex)
     {
-        if (selectedItem != null)
-        {
-            Destroy(selectedItem);
-        }
+        GameObject item = items[itemIndex];
+        TowerManager towerManager = item.GetComponent<TowerManager>();
 
-        selectedItem = Instantiate(items[itemIndex]);
-        selectedItemIdx = itemIndex;
-        isPlacingItem = true;
+        if (towerManager != null)
+        {
+            int buildCost = towerManager.buildCost;
+
+            // 코인이 충분한지 확인합니다.
+            if (coin >= buildCost)
+            {
+                if (selectedItem != null)
+                {
+                    Destroy(selectedItem);
+                }
+
+                selectedItem = Instantiate(items[itemIndex]);
+                selectedItemIdx = itemIndex;
+                isPlacingItem = true;
+            }
+            else
+            {
+                Debug.Log("Not enough coins to build this item.");
+            }
+        }
     }
 
     void PlaceItem(Vector3 position)
     {
-        Instantiate(items[selectedItemIdx], position, Quaternion.identity);
+        GameObject item = Instantiate(items[selectedItemIdx], position, Quaternion.identity);
+        TowerManager towerManager = item.GetComponent<TowerManager>();
+
+        if (towerManager != null)
+        {
+            int buildCost = towerManager.buildCost;
+
+            // 코인 차감
+            coin -= buildCost;
+            UpdateCoin();
+        }
 
         // 초기화
         Destroy(selectedItem);

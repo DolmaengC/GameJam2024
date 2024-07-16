@@ -425,3 +425,5 @@ MonoBehaviour:
   weaponManager: {fileID: 2740340908562545198}
   coolTime: 1
   timer: 0
+  buildCost: 5
+  enhanceCost: 0

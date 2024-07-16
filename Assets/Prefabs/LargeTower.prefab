@@ -194,6 +194,8 @@ MonoBehaviour:
   weaponManager: {fileID: 1696167130864810275}
   coolTime: 1
   timer: 0
+  buildCost: 10
+  enhanceCost: 10
 --- !u!1 &8630154969602081661
 GameObject:
   m_ObjectHideFlags: 0

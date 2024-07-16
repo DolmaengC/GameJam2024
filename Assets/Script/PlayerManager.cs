@@ -14,7 +14,6 @@ public class PlayerManager : MonoBehaviour
     public float currentHP;
     public float maxEXP;
     public float currentEXP;
-    public float coin;
     
 
     public TMP_Text HPText;
@@ -22,7 +21,6 @@ public class PlayerManager : MonoBehaviour
     public TMP_Text levelText;
     public Slider HPBar;
     public Slider EXPBar;
-    public TMP_Text coinText;
     
 
     void Awake()
@@ -30,10 +28,6 @@ public class PlayerManager : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         initializeStatus();
 
-    }
-    void FixedUpdate() {
-        coin += 0.05f;
-        UpdateCoin();
     }
     private void OnCollisionEnter2D(Collision2D other) {
         if(!other.gameObject.CompareTag("Enemy"))
@@ -85,14 +79,12 @@ public class PlayerManager : MonoBehaviour
 
 
     private void initializeStatus() {
-        coin = 0;
         maxHP = 10;
         currentHP = maxHP;
         maxEXP = 10;
         currentEXP = 0;
         UpdateHP();
         UpdateEXP();
-        UpdateCoin();
         UpdateLevel();
     }
 
@@ -109,9 +101,6 @@ public class PlayerManager : MonoBehaviour
     public void UpdateLevel() {
         levelText.text = "Level " + level.ToString();
     }  
-    public void UpdateCoin() {
-        coinText.text = Mathf.FloorToInt(coin).ToString();
-    }
 
     public void Dead() {
         GameManager.instance.EndGame(false);
