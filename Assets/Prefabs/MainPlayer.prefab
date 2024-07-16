@@ -213,11 +213,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackType: 0
-  bullet: {fileID: 0}
-  bulletPool: []
-  damage: 0
+  bullet: {fileID: 5727991427280380882, guid: e6429c3421d5f3948a405b7aa74eeb5d, type: 3}
+  bulletPool:
+  - {fileID: 5727991427280380882, guid: e6429c3421d5f3948a405b7aa74eeb5d, type: 3}
+  damage: 11
   count: 2
-  speed: 0
+  speed: -150
 --- !u!1 &5367623323898980014
 GameObject:
   m_ObjectHideFlags: 0
