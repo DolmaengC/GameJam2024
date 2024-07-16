@@ -46,7 +46,7 @@ public class PlayerManager : MonoBehaviour
         if(currentHP > 0){
             
         }else{
-            // Dead();
+            Dead();
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -113,5 +113,7 @@ public class PlayerManager : MonoBehaviour
         coinText.text = Mathf.FloorToInt(coin).ToString();
     }
 
-
+    public void Dead() {
+        GameManager.instance.EndGame(false);
+    }
 }
