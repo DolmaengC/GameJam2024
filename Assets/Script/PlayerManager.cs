@@ -49,6 +49,13 @@ public class PlayerManager : MonoBehaviour
             // Dead();
         }
     }
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.CompareTag("ExpItem")){
+            currentEXP += 1;
+            UpdateCoin();
+            Destroy(other.gameObject);
+        }
+    }
 
     private void initializeStatus() {
         coin = 0;
