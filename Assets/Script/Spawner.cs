@@ -22,6 +22,28 @@ public class Spawner : MonoBehaviour
             timer = 0;
             Spawn();
         }
+
+        if(spawnData[level].spriteType == 0){
+            spawnData[level].spawnTime = 3;
+            spawnData[level].health = 10;
+            spawnData[level].speed = 1.2f;
+        }else if(spawnData[level].spriteType == 1){
+            spawnData[level].spawnTime = 2;
+            spawnData[level].health = 15;
+            spawnData[level].speed = 2.2f;
+        }else if(spawnData[level].spriteType == 2){
+            spawnData[level].spawnTime = 2;
+            spawnData[level].health = 20;
+            spawnData[level].speed = 2.4f;
+        }else if(spawnData[level].spriteType == 3){
+            spawnData[level].spawnTime = 0.5f;
+            spawnData[level].health = 25;
+            spawnData[level].speed = 4.2f;
+        }else if(spawnData[level].spriteType == 4){
+            spawnData[level].spawnTime = 0.25f;
+            spawnData[level].health = 30;
+            spawnData[level].speed = 5.2f;
+        }
     }
 
     void Spawn(){
