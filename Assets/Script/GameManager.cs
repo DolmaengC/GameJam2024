@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public Slider timerBar;
     public int score;
     public TMP_Text scoreText;
+    bool isPaused = false;
     void Awake()
     {
         gametime = maxGameTime;
@@ -29,7 +30,24 @@ public class GameManager : MonoBehaviour
         score = 0;
         UpdateScore();
     }
-
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (isPaused == false)
+            {
+                Time.timeScale = 0;
+                isPaused = true;
+                return;
+            }
+            else
+            {
+                Time.timeScale = 1;
+                isPaused = false;
+                return;
+            }
+        }
+    }
     void FixedUpdate()
     {
         gametime -= Time.deltaTime;
