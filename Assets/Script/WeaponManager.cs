@@ -1,112 +1,105 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using UnityEditor;
 using UnityEngine;
 
-public class Weaponmanager : MonoBehaviour
+public class WeaponManager : MonoBehaviour
 {
-    public int id;
-    public int prefabId;
+    public int attackType;
+    public GameObject bullet;
+    public List<GameObject> bulletPool;
     public float damage;
     public int count;
     public float speed;
-
+    
     float timer;
-    TowerManager tower;
 
-    void Awake(){
-        tower = GetComponentInParent<TowerManager>();
+    void Awake()
+    {
+        bulletPool = new List<GameObject>();
     }
 
-    void Start(){
-        if(gameObject.name == "Weapon0"){
-            id = 0;
-            prefabId = 1;
-        }else if(gameObject.name == "Weapon1"){
-            id = 1;
-            prefabId = 2;
-        }
-
-        Init();
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        switch(id){
+        switch (attackType)
+        {
             case 0:
                 transform.Rotate(Vector3.forward * speed * Time.deltaTime);
                 break;
             default:
-                timer += Time.deltaTime;
-
-                if(timer > speed){
-                    timer = 0f;
-                    Fire();
-                }
+                // 다른 공격 타입 처리
                 break;
         }
 
-        if(Input.GetButtonDown("Jump")){
+        if (Input.GetButtonDown("Jump"))
+        {
             LevelUp(20, 5);
         }
     }
 
-    void LevelUp(float damage, int count){
+    void LevelUp(float damage, int count)
+    {
         this.damage = damage;
         this.count += count;
 
-        if(id == 0){
+        if (attackType == 0)
+        {
             Batch();
         }
     }
 
-    public void Init(){
-        switch(id){
-            case 0:
-                speed = -150;
-                damage = 11;
-                Batch();
-                break;
-            case 1  :
-                speed = 0.3f;
-                damage = 3;
-                break;
-        }
-    }
-
-    void Batch(){
-        for(int i = 0; i < count; i++){
-            Transform bullet ;
-            if(i < transform.childCount){
-                bullet = transform.GetChild(i);
-            }else{
-                bullet = GameAdministorator.instance.pool.Get(prefabId).transform;
+    void Batch()
+    {
+        for (int i = 0; i < count; i++)
+        {
+            Transform bulletTransform;
+            if (i < transform.childCount)
+            {
+                bulletTransform = transform.GetChild(i);
             }
-            
-            bullet.parent = transform;
+            else
+            {
+                bulletTransform = generateBullet().transform;
+            }
 
-            bullet.localPosition = Vector3.zero;
-            bullet.localRotation = Quaternion.identity;
+            bulletTransform.parent = transform;
+            bulletTransform.localPosition = Vector3.zero;
+            bulletTransform.localRotation = Quaternion.identity;
 
             Vector3 rotVec = Vector3.forward * 360 * i / count;
-            bullet.Rotate(rotVec);
-            bullet.Translate(bullet.up * 1.5f, Space.World);
-            bullet.GetComponent<BulletManager>().Init(damage, -1, Vector3.zero); // -1 is Infinity Per.
+            bulletTransform.Rotate(rotVec);
+            bulletTransform.Translate(bulletTransform.up * 1.5f, Space.World);
+            bulletTransform.GetComponent<BulletManager>().Init(damage, -1, Vector3.zero); // -1 is Infinity Per.
         }
     }
 
-    void Fire(){
-        if(!tower.scanner.nearestTarget){
-            return;
+    public GameObject generateBullet()
+    {
+        GameObject select = null;
+
+        foreach (GameObject item in bulletPool)
+        {
+            if (!item.activeSelf)
+            {
+                select = item;
+                select.SetActive(true);
+                break;
+            }
         }
 
-        Vector3 targetPos = tower.scanner.nearestTarget.position;
+        if (select == null)
+        {
+            select = Instantiate(bullet, transform);
+            bulletPool.Add(select);
+        }
+
+        return select;
+    }
+
+    public void Fire(Vector3 targetPos)
+    {
         Vector3 dir = (targetPos - transform.position).normalized;
-        dir = dir.normalized;
-        
-        Transform bullet = GameAdministorator.instance.pool.Get(prefabId).transform;
+
+        Transform bullet = generateBullet().transform;
         bullet.position = transform.position;
         bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir);
         bullet.GetComponent<BulletManager>().Init(damage, count, dir);
