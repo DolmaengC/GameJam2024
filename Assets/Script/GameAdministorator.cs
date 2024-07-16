@@ -6,7 +6,7 @@ public class GameAdministorator : MonoBehaviour
 {
     public static GameAdministorator instance;
     public float gametime;
-    public float maxGameTime = 2 * 10f;
+    public float maxGameTime = 5 * 5f;
     public PoolManager pool;
     public PlayerMovement player;
 

@@ -4,7 +4,7 @@ using System.Diagnostics.Contracts;
 using UnityEditor;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class Weaponmanager : MonoBehaviour
 {
     public int id;
     public int prefabId;
@@ -13,13 +13,21 @@ public class Weapon : MonoBehaviour
     public float speed;
 
     float timer;
-    Tower tower;
+    TowerManager tower;
 
     void Awake(){
-        tower = GetComponentInParent<Tower>();
+        tower = GetComponentInParent<TowerManager>();
     }
 
     void Start(){
+        if(gameObject.name == "Weapon0"){
+            id = 0;
+            prefabId = 1;
+        }else if(gameObject.name == "Weapon1"){
+            id = 1;
+            prefabId = 2;
+        }
+
         Init();
     }
 
@@ -58,10 +66,12 @@ public class Weapon : MonoBehaviour
         switch(id){
             case 0:
                 speed = -150;
+                damage = 11;
                 Batch();
                 break;
-            default:
+            case 1  :
                 speed = 0.3f;
+                damage = 3;
                 break;
         }
     }
@@ -83,7 +93,7 @@ public class Weapon : MonoBehaviour
             Vector3 rotVec = Vector3.forward * 360 * i / count;
             bullet.Rotate(rotVec);
             bullet.Translate(bullet.up * 1.5f, Space.World);
-            bullet.GetComponent<Bullet>().Init(damage, -1, Vector3.zero); // -1 is Infinity Per.
+            bullet.GetComponent<BulletManager>().Init(damage, -1, Vector3.zero); // -1 is Infinity Per.
         }
     }
 
@@ -99,6 +109,6 @@ public class Weapon : MonoBehaviour
         Transform bullet = GameAdministorator.instance.pool.Get(prefabId).transform;
         bullet.position = transform.position;
         bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir);
-        bullet.GetComponent<Bullet>().Init(damage, count, dir);
+        bullet.GetComponent<BulletManager>().Init(damage, count, dir);
     }
 }

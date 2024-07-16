@@ -17588,6 +17588,18 @@ MonoBehaviour:
     spriteType: 1
     health: 15
     speed: 2.2
+  - spawnTime: 2
+    spriteType: 2
+    health: 20
+    speed: 2.4
+  - spawnTime: 1.5
+    spriteType: 3
+    health: 35
+    speed: 2
+  - spawnTime: 4
+    spriteType: 4
+    health: 55
+    speed: 2.7
 --- !u!1 &1012769710
 GameObject:
   m_ObjectHideFlags: 0
@@ -25720,7 +25732,7 @@ GameObject:
   - component: {fileID: 1821053422}
   - component: {fileID: 1821053423}
   m_Layer: 0
-  m_Name: Weapon 0
+  m_Name: Weapon0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25754,8 +25766,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  prefabId: 1
-  damage: 11
+  prefabId: 0
+  damage: 0
   count: 2
   speed: 0
 --- !u!1 &1853930065
@@ -26807,7 +26819,7 @@ GameObject:
   - component: {fileID: 2070201677}
   - component: {fileID: 2070201678}
   m_Layer: 0
-  m_Name: Weapon 1
+  m_Name: Weapon1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26840,11 +26852,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
-  prefabId: 2
-  damage: 5
+  id: 0
+  prefabId: 0
+  damage: 0
   count: 2
-  speed: 0.3
+  speed: 0
 --- !u!1 &2080069851
 GameObject:
   m_ObjectHideFlags: 0
