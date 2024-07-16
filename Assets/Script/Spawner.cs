@@ -36,13 +36,13 @@ public class Spawner : MonoBehaviour
             spawnData[level].health = 20;
             spawnData[level].speed = 2.4f;
         }else if(spawnData[level].spriteType == 3){
-            spawnData[level].spawnTime = 0.5f;
-            spawnData[level].health = 25;
-            spawnData[level].speed = 4.2f;
+            spawnData[level].spawnTime = 1.5f;
+            spawnData[level].health = 35;
+            spawnData[level].speed = 2f;
         }else if(spawnData[level].spriteType == 4){
-            spawnData[level].spawnTime = 0.25f;
-            spawnData[level].health = 30;
-            spawnData[level].speed = 5.2f;
+            spawnData[level].spawnTime = 4f;
+            spawnData[level].health = 55;
+            spawnData[level].speed = 2.7f;
         }
     }
 
