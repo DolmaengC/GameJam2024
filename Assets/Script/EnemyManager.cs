@@ -13,7 +13,7 @@ using Vector2 = UnityEngine.Vector2;
 
 
 
-public class Enemy : MonoBehaviour
+public class EnemyManager : MonoBehaviour
 {
     public float speed;
     public float health;
@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
         anim.runtimeAnimatorController = animCon[data.spriteType];
         speed = data.speed;
         maxHealth = data.health;
-        health  = data.health;
+        health = data.health;
     }
 
     void OnTriggerEnter2D(Collider2D collision){
@@ -70,7 +70,7 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        health -= collision.GetComponent<Bullet>().damage;
+        health -= collision.GetComponent<BulletManager>().damage;
         if(health > 0){
 
         }else{

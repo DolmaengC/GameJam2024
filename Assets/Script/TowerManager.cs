@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+public class TowerManager : MonoBehaviour
 {
     public Scanner scanner;
     // Start is called before the first frame update

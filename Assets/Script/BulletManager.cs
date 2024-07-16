@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class BulletManager : MonoBehaviour
 {
     public float damage;
     public int per;
@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
         this.per = per;
 
         if(per > -1){
-            rigid.velocity = dir *15;
+                rigid.velocity = dir *15;
         }
     }
 
