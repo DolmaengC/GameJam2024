@@ -43,6 +43,12 @@ public class UIManager : MonoBehaviour
         mainCamera = Camera.main;
         coin = 0f;
         UpdateCoin();
+        LoadSelectedTowers();
+        InitializeTowerButtons();
+    }
+    void LoadSelectedTowers()
+    {
+        items = GameData.instance.selectedTowers.ToArray();
         InitializeTowerButtons();
     }
 

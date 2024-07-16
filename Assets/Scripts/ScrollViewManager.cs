@@ -9,6 +9,7 @@ public class ScrollViewManager : MonoBehaviour
     public GameObject buttonPrefab; // 버튼 프리팹
     public Transform content; // ScrollView의 Content 트랜스폼
     public Button[] towerSettingButtons; // TowerSetting 안에 있는 버튼들
+    public GameObject[] towerList;
 
     private HashSet<string> activeButtonTexts = new HashSet<string>();
 
@@ -32,7 +33,7 @@ public class ScrollViewManager : MonoBehaviour
             return;
         }
 
-        AddButtonsToScrollView(10); // 예시로 10개의 버튼을 추가
+        AddButtonsToScrollView();
 
         // 모든 TowerSetting 버튼들을 비활성화
         foreach (var button in towerSettingButtons)
@@ -42,15 +43,15 @@ public class ScrollViewManager : MonoBehaviour
         }
     }
 
-    void AddButtonsToScrollView(int count)
+    void AddButtonsToScrollView()
     {
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < towerList.Length; i++)
         {
             GameObject newButton = Instantiate(buttonPrefab, content);
             TMP_Text buttonText = newButton.GetComponentInChildren<TMP_Text>();
             if (buttonText != null)
             {
-                buttonText.text = "Tower " + (i + 1);
+                buttonText.text = towerList[i].name;
             }
             else
             {
@@ -60,7 +61,8 @@ public class ScrollViewManager : MonoBehaviour
             Button buttonComponent = newButton.GetComponent<Button>();
             if (buttonComponent != null)
             {
-                buttonComponent.onClick.AddListener(() => OnScrollViewButtonClick(buttonText.text));
+                int index = i; // Capture the current value of i
+                buttonComponent.onClick.AddListener(() => OnScrollViewButtonClick(buttonText.text, towerList[index]));
             }
             else
             {
@@ -78,7 +80,7 @@ public class ScrollViewManager : MonoBehaviour
         LayoutRebuilder.ForceRebuildLayoutImmediate(content.GetComponent<RectTransform>());
     }
 
-    void OnScrollViewButtonClick(string buttonText)
+    void OnScrollViewButtonClick(string buttonText, GameObject tower)
     {
         if (activeButtonTexts.Contains(buttonText))
         {
@@ -95,6 +97,7 @@ public class ScrollViewManager : MonoBehaviour
             {
                 towerButtonText.text = buttonText;
                 activeButtonTexts.Add(buttonText); // 중복 방지를 위해 텍스트 추가
+                GameData.instance.selectedTowers.Add(tower); // 선택된 타워를 GameData에 추가
             }
         }
         else
@@ -122,6 +125,8 @@ public class ScrollViewManager : MonoBehaviour
         if (buttonText != null)
         {
             activeButtonTexts.Remove(buttonText.text); // 활성화된 버튼 텍스트 제거
+            // 선택된 타워를 GameData에서 제거
+            GameData.instance.selectedTowers.RemoveAll(tower => tower.name == buttonText.text);
         }
     }
 }
