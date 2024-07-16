@@ -11,11 +11,13 @@ public class GameManager : MonoBehaviour
     // public PlayerMovement playerMovement;
     public float gametime;
     public float maxGameTime = 5 * 5f;
+    public TMP_Text timerText;
+    public Slider timerBar;
     public int score;
     public TMP_Text scoreText;
     void Awake()
     {
-        gametime = 0;
+        gametime = maxGameTime;
         if (instance == null)
         {
             instance = this;
@@ -30,10 +32,11 @@ public class GameManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        gametime += Time.deltaTime;
+        gametime -= Time.deltaTime;
+        UpdateTimer();
 
-        if(gametime > maxGameTime){
-            gametime = maxGameTime;
+        if(gametime <= 0){
+            
         }
     }
 
@@ -45,5 +48,15 @@ public class GameManager : MonoBehaviour
     {
         score += amount;
         UpdateScore();
+    }
+
+    void UpdateTimer()
+    {
+        int min = Mathf.FloorToInt(gametime / 60);
+        int sec = Mathf.FloorToInt(gametime % 60);
+        timerText.text = min.ToString() + ":" + sec.ToString().PadLeft(2, '0');
+        timerBar.maxValue = maxGameTime;
+        timerBar.value = maxGameTime - gametime;
+        
     }
 }
