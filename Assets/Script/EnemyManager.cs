@@ -9,6 +9,7 @@ public class EnemyManager : MonoBehaviour
     public float maxHealth;
     public float damage;
     public float spawnTime;
+    public int score;
     public RuntimeAnimatorController[] animCon;
 
     bool isLive;
@@ -76,6 +77,7 @@ public class EnemyManager : MonoBehaviour
     void Dead()
     {
         gameObject.SetActive(false);
+        GameManager.instance.IncreaseScore(score);
         // isLive = false;
         // anim.SetTrigger("dead");
         // Destroy(gameObject, 1.5f);
