@@ -71,10 +71,13 @@ public class TowerManager : MonoBehaviour
             string managerTowerName = towerManager.gameObject.name.Replace("(Clone)", "").Trim();
             if (managerTowerName == towerName)
             {
-                Animator animator = towerManager.GetComponentInChildren<Animator>();
-                if (animator != null)
+                Animator[] animators = towerManager.GetComponentsInChildren<Animator>();
+                foreach (Animator animator in animators)
                 {
-                    animator.SetInteger("state", towerStates[towerName]);
+                    if (animator != null)
+                    {
+                        animator.SetInteger("state", towerStates[towerName]);
+                    }
                 }
             }
         }
