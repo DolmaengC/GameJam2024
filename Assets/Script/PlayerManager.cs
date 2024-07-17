@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-
     public Rigidbody2D rb;
     public WeaponManager weaponManager;
     public int level;
@@ -14,35 +13,51 @@ public class PlayerManager : MonoBehaviour
     public float currentHP;
     public float maxEXP;
     public float currentEXP;
-    
 
     public TMP_Text HPText;
     public TMP_Text EXPText;
     public TMP_Text levelText;
     public Slider HPBar;
     public Slider EXPBar;
-    
+
+    private bool isTakingDamage = false;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         initializeStatus();
-
     }
-    private void OnCollisionEnter2D(Collision2D other) {
-        if(!other.gameObject.CompareTag("Enemy"))
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (!other.gameObject.CompareTag("Enemy"))
         {
             return;
         }
 
-        currentHP -= other.gameObject.GetComponent<EnemyManager>().damage;
-        UpdateHP();
-        if(currentHP > 0){
-            
-        }else{
-            Dead();
+        if (!isTakingDamage)
+        {
+            StartCoroutine(TakeDamage(1f, other.gameObject.GetComponent<EnemyManager>().damage));
         }
     }
+
+    private IEnumerator TakeDamage(float delay, float damage)
+    {
+        isTakingDamage = true;
+        while (isTakingDamage)
+        {
+            currentHP -= damage;
+            UpdateHP();
+            if (currentHP <= 0)
+            {
+                Dead();
+                break;
+            }
+            yield return new WaitForSeconds(delay);
+        }
+        isTakingDamage = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("ExpItem"))
@@ -77,8 +92,8 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-
-    private void initializeStatus() {
+    private void initializeStatus()
+    {
         maxHP = 10;
         currentHP = maxHP;
         maxEXP = 10;
@@ -88,21 +103,27 @@ public class PlayerManager : MonoBehaviour
         UpdateLevel();
     }
 
-    public void UpdateHP() {
+    public void UpdateHP()
+    {
         HPText.text = currentHP.ToString() + "/" + maxHP.ToString();
-        HPBar.maxValue = maxHP; 
+        HPBar.maxValue = maxHP;
         HPBar.value = currentHP;
     }
-    public void UpdateEXP() {
+
+    public void UpdateEXP()
+    {
         EXPText.text = currentEXP.ToString() + "/" + maxEXP.ToString();
         EXPBar.maxValue = maxEXP;
         EXPBar.value = currentEXP;
     }
-    public void UpdateLevel() {
-        levelText.text = "Level " + level.ToString();
-    }  
 
-    public void Dead() {
+    public void UpdateLevel()
+    {
+        levelText.text = "Level " + level.ToString();
+    }
+
+    public void Dead()
+    {
         GameManager.instance.EndGame(false);
     }
 }
