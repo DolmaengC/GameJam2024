@@ -317,12 +317,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scanner: {fileID: 0}
-  weaponManager: {fileID: 0}
   buildCost: 5
   enhanceCost: 5
   towerMaxHp: 5
   towerCurrentHp: 5
   HPBar: {fileID: 3813655074306858132}
+  towerImg: {fileID: 21300000, guid: d36d7044e6c43f94cb02c7ed23a42f75, type: 3}
 --- !u!114 &2461159503991727715
 MonoBehaviour:
   m_ObjectHideFlags: 0

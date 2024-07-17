@@ -21,16 +21,17 @@ public class UIManager : MonoBehaviour
     public GameObject createTowerBtns;
     public Button BackBtn_0;
     public Button[] createTowerButtons;
+    public GameObject[] createTowerImg;
     public TMP_Text[] createTowerBtnTexts;
 
     public GameObject EnhanceTowerBtns;
     public Button BackBtn_1;
     public Button[] enhanceTowerButtons; // 배열로 변경
     public TMP_Text[] enhanceTowerBtnTexts;
+    public GameObject[] enhanceTowerImg;
     public GameObject EnhancePlayerBtns;
     public Button BackBtn_2;
     public Button[] enhancePlayerButtons; // 배열로 변경
-
     private Camera mainCamera;
 
     private CapsuleCollider2D selectedCapsuleCollider2D;
@@ -71,6 +72,7 @@ public class UIManager : MonoBehaviour
         coin = 0f;
         UpdateCoin();
         LoadSelectedTowers();
+        SetTowerImgs();
         UpdateCreateTowerButtonsText();
         UpdateEnhanceTowerButtonsText();
     }
@@ -78,6 +80,22 @@ public class UIManager : MonoBehaviour
     void LoadSelectedTowers()
     {
         items = GameData.instance.selectedTowers.ToArray();
+    }
+    void SetTowerImgs() {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (i < createTowerImg.Length)
+            {
+                GameObject item = items[i];
+                TowerManager towerManager = item.GetComponent<TowerManager>();
+
+                if (towerManager != null)
+                {
+                    createTowerImg[i].GetComponent<Image>().sprite = towerManager.towerImg;
+                    enhanceTowerImg[i].GetComponent<Image>().sprite = towerManager.towerImg;
+                }
+            }
+        }
     }
 
     void UpdateCreateTowerButtonsText()
