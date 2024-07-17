@@ -8,8 +8,6 @@ public class TowerManager : MonoBehaviour
 {
     public Scanner scanner;
     public WeaponManager weaponManager;
-    public float coolTime;
-    public float timer;
     public int buildCost;
     public int enhanceCost;
     public static Dictionary<string, int> towerStates = new Dictionary<string, int>(); // 타워 종류별 상태를 저장할 static 변수
@@ -53,22 +51,6 @@ public class TowerManager : MonoBehaviour
     void Update()
     {
         UpdateHP();
-        timer += Time.deltaTime;
-
-        if (timer > coolTime)
-        {
-            timer = 0f;
-            if (scanner.nearestTarget == null)
-            {
-                return;
-            }
-
-            Vector3 targetPos = scanner.nearestTarget.position;
-            if (weaponManager != null)
-            {
-                weaponManager.Fire(targetPos);
-            }
-        }
     }
 
     // 상태를 증가시키고 애니메이터에 상태를 전달하는 메서드
@@ -99,6 +81,7 @@ public class TowerManager : MonoBehaviour
             }
         }
     }
+    
     private void OnCollisionStay2D(Collision2D other) {
         if(other.gameObject.CompareTag("Enemy")&&!IsDamagging) {
             StartCoroutine(Damagging(1f, other.gameObject.GetComponent<EnemyManager>().damage));

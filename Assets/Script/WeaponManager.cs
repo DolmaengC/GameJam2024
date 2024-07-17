@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
+    public Scanner scanner;
     public int attackType;
     public GameObject bullet;
     public List<GameObject> bulletPool;
     public float damage;
     public int count;
     public float speed;
-    
-    float timer;
+    public float coolTime;
+    public float timer;
 
     void Awake()
     {
+        scanner = GetComponent<Scanner>();
         bulletPool = new List<GameObject>();
     }
 
@@ -25,6 +27,24 @@ public class WeaponManager : MonoBehaviour
             case 0:
                 transform.Rotate(Vector3.forward * speed * Time.deltaTime);
                 break;
+            case 1:
+                timer += Time.deltaTime;
+
+                if (timer > coolTime)
+                {
+                    timer = 0f;
+                    if (scanner.nearestTarget == null)
+                    {
+                        return;
+                    }
+
+                    Vector3 targetPos = scanner.nearestTarget.position;
+                    
+                    Fire(targetPos);
+                    
+                }
+                break;
+
             default:
                 // 다른 공격 타입 처리
                 break;
