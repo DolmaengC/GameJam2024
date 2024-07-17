@@ -20,14 +20,16 @@ public class UIManager : MonoBehaviour
 
     public GameObject createTowerBtns;
     public Button BackBtn_0;
+    public Button[] createTowerButtons;
     public TMP_Text[] createTowerBtnTexts;
-    public TMP_Text[] enhanceTowerBtnTexts;
 
     public GameObject EnhanceTowerBtns;
     public Button BackBtn_1;
     public Button[] enhanceTowerButtons; // 배열로 변경
+    public TMP_Text[] enhanceTowerBtnTexts;
     public GameObject EnhancePlayerBtns;
     public Button BackBtn_2;
+    public Button[] enhancePlayerButtons; // 배열로 변경
 
     private Camera mainCamera;
 
@@ -44,11 +46,25 @@ public class UIManager : MonoBehaviour
         BackBtn_1.onClick.AddListener(OnBackBtnClicked);
         BackBtn_2.onClick.AddListener(OnBackBtnClicked);
 
+        // CreateTower
+        for (int i = 0; i < createTowerButtons.Length; i++)
+        {
+            int index = i; // 로컬 복사본 생성
+            createTowerButtons[i].onClick.AddListener(() => SelectItem(index));
+        }
+
         // EnhanceTower 버튼에 각각 리스너 추가
         for (int i = 0; i < enhanceTowerButtons.Length; i++)
         {
             int index = i; // 로컬 복사본 생성
-            enhanceTowerButtons[i].onClick.AddListener(() => OnEnhanceStateButtonClicked(index));
+            enhanceTowerButtons[i].onClick.AddListener(() => OnEnhanceTowerButtonClicked(index));
+        }
+
+        // EnhancePlayer 버튼에 각각 리스너 추가
+        for (int i = 0; i < enhanceTowerButtons.Length; i++)
+        {
+            int index = i; // 로컬 복사본 생성
+            enhanceTowerButtons[i].onClick.AddListener(() => OnEnhancePlayerButtonClicked(index));
         }
 
         mainCamera = Camera.main;
@@ -248,7 +264,7 @@ public class UIManager : MonoBehaviour
     }
 
     // 상태를 증가시키는 버튼 클릭 시 호출되는 메서드
-    void OnEnhanceStateButtonClicked(int index)
+    void OnEnhanceTowerButtonClicked(int index)
     {
         if (index >= 0 && index < items.Length)
         {
@@ -273,5 +289,10 @@ public class UIManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    void OnEnhancePlayerButtonClicked(int index)
+    {
+
     }
 }
