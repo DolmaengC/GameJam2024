@@ -17,6 +17,7 @@ public class TowerManager : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     private Animator animator;
+    public Sprite towerImg;
 
     // Start is called before the first frame update
     void Awake()

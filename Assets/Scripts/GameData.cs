@@ -5,6 +5,7 @@ public class GameData : MonoBehaviour
 {
     public static GameData instance;
     public List<GameObject> selectedTowers = new List<GameObject>();
+    
 
     void Awake()
     {
@@ -18,4 +19,5 @@ public class GameData : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }

@@ -155,6 +155,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &37784870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1409021618054241916, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+  m_PrefabInstance: {fileID: 235946144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &45538707 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 359885788211634345, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
@@ -170,6 +175,11 @@ MonoBehaviour:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5367623323898980014, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
   m_PrefabInstance: {fileID: 5058496452772446490}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &58933720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5243018553699369578, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+  m_PrefabInstance: {fileID: 235946144}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &68093926
 GameObject:
@@ -220,6 +230,12 @@ MonoBehaviour:
   - {fileID: 1486523135}
   - {fileID: 315997435}
   - {fileID: 1512824015}
+  createTowerImg:
+  - {fileID: 135419670}
+  - {fileID: 58933720}
+  - {fileID: 1883730068}
+  - {fileID: 2131761979}
+  - {fileID: 37784870}
   createTowerBtnTexts:
   - {fileID: 235946163}
   - {fileID: 235946162}
@@ -240,6 +256,12 @@ MonoBehaviour:
   - {fileID: 235946155}
   - {fileID: 235946154}
   - {fileID: 235946153}
+  enhanceTowerImg:
+  - {fileID: 876149417}
+  - {fileID: 330284712}
+  - {fileID: 116655324}
+  - {fileID: 1047599143}
+  - {fileID: 909484518}
   EnhancePlayerBtns: {fileID: 235946151}
   BackBtn_2: {fileID: 235946145}
   enhancePlayerButtons:
@@ -311,6 +333,11 @@ Transform:
   - {fileID: 1818703081}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &116655324 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7560160199951404289, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+  m_PrefabInstance: {fileID: 235946144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &125692074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -368,6 +395,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe9873ab9bcf441b28bd992699293fb8, type: 3}
+--- !u!1 &135419670 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 148535691024122707, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+  m_PrefabInstance: {fileID: 235946144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &155217589
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +656,7 @@ MonoBehaviour:
   - {fileID: 3610146269770174094, guid: 0b25993be9d997b4daa838d22eec73d9, type: 3}
   - {fileID: 1956386582275742733, guid: 0f1f80990dc5f7a4494c119358a43157, type: 3}
   - {fileID: 366886714991690043, guid: 6fd7033ed6b956742a878c93e6c39491, type: 3}
-  - {fileID: 1794591558966923202, guid: 3194cde087ce3384cb029f7c4df3e6fb, type: 3}
+  - {fileID: 3757535745101111700, guid: f7926037c99d12048adc6d45c4214008, type: 3}
 --- !u!4 &221316679
 Transform:
   m_ObjectHideFlags: 0
@@ -5378,6 +5410,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &330284712 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7507394216807107256, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+  m_PrefabInstance: {fileID: 235946144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &339524023 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3295128536550088135, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
@@ -10141,6 +10178,11 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &876149417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3650532630321636046, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+  m_PrefabInstance: {fileID: 235946144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &905933185
 GameObject:
   m_ObjectHideFlags: 0
@@ -14426,6 +14468,11 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &909484518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8793831410097103482, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+  m_PrefabInstance: {fileID: 235946144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &933810680 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9190424001708350786, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
@@ -14576,6 +14623,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1047599143 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1167950580871148018, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+  m_PrefabInstance: {fileID: 235946144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1108188897 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7793275503422259987, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
@@ -19683,6 +19735,11 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &1883730068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4953719787877939348, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+  m_PrefabInstance: {fileID: 235946144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1902009262 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3367952468982446050, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
@@ -19826,6 +19883,11 @@ MonoBehaviour:
   speed: -150
   coolTime: 0
   timer: 0
+--- !u!1 &2131761979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2084220495336781450, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+  m_PrefabInstance: {fileID: 235946144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2143300487 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8428072302792423680, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
