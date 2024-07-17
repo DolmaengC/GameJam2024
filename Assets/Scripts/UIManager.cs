@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
 
     private CapsuleCollider2D selectedCapsuleCollider2D;
     private Scanner selectedScanner;
+    private Canvas selectedCanvas;
 
     void Start()
     {
@@ -174,12 +175,14 @@ public class UIManager : MonoBehaviour
                 }
 
                 selectedItem = Instantiate(items[itemIndex]);
+                selectedItem.GetComponent<TowerManager>().UpdateHP();
                 selectedItemIdx = itemIndex;
                 isPlacingItem = true;
 
-                // BoxCollider2D와 Scanner 비활성화
+                // CapsuleCollider2D와 Scanner 비활성화
                 selectedCapsuleCollider2D = selectedItem.GetComponent<CapsuleCollider2D>();
                 selectedScanner = selectedItem.GetComponent<Scanner>();
+                selectedCanvas = selectedItem.GetComponentInChildren<Canvas>();
                 
                 if (selectedCapsuleCollider2D != null)
                 {
@@ -189,6 +192,11 @@ public class UIManager : MonoBehaviour
                 if (selectedScanner != null)
                 {
                     selectedScanner.enabled = false;
+                }
+
+                if (selectedCanvas != null)
+                {
+                    selectedCanvas.enabled = false;
                 }
             }
             else
@@ -212,15 +220,24 @@ public class UIManager : MonoBehaviour
             UpdateCoin();
         }
 
-        // BoxCollider2D와 Scanner 다시 활성화
-        if (selectedCapsuleCollider2D != null)
+        // CapsuleCollider2D, Scanner 및 Canvas 다시 활성화
+        CapsuleCollider2D itemCapsuleCollider2D = item.GetComponent<CapsuleCollider2D>();
+        Scanner scanner = item.GetComponent<Scanner>();
+        Canvas canvas = item.GetComponentInChildren<Canvas>();
+
+        if (itemCapsuleCollider2D != null)
         {
-            selectedCapsuleCollider2D.enabled = true;
+            itemCapsuleCollider2D.enabled = true;
         }
 
-        if (selectedScanner != null)
+        if (scanner != null)
         {
-            selectedScanner.enabled = true;
+            scanner.enabled = true;
+        }
+
+        if (canvas != null)
+        {
+            canvas.enabled = true;
         }
 
         // 초기화
