@@ -431,9 +431,9 @@ MonoBehaviour:
   coin: 0
   coinText: {fileID: 1297347659}
   storeMenuBtns: {fileID: 1108515080}
-  CreateTowerBtn: {fileID: 1145837070}
-  EnhanceTowerBtn: {fileID: 1473104081}
-  EnhancePlayerBtn: {fileID: 1884596499}
+  CreateTowerViewBtn: {fileID: 1145837070}
+  EnhanceTowerViewBtn: {fileID: 1473104081}
+  EnhancePlayerViewBtn: {fileID: 1884596499}
   createTowerBtns: {fileID: 1247881648}
   BackBtn_0: {fileID: 2130932261}
   createTowerBtnTexts:
@@ -442,13 +442,20 @@ MonoBehaviour:
   - {fileID: 2048523857}
   - {fileID: 1107203277}
   - {fileID: 252807533}
+  enhanceTowerBtnTexts:
+  - {fileID: 1339847545}
+  - {fileID: 1569322868}
+  - {fileID: 1831042081}
+  - {fileID: 485258675}
+  - {fileID: 170551630}
   EnhanceTowerBtns: {fileID: 423901257}
   BackBtn_1: {fileID: 2130932261}
-  EnhanceTower1Button: {fileID: 1460156781}
-  EnhanceTower2Button: {fileID: 971584467}
-  EnhanceTower3Button: {fileID: 574054266}
-  EnhanceTower4Button: {fileID: 874120155}
-  EnhanceTower5Button: {fileID: 2113295784}
+  enhanceTowerButtons:
+  - {fileID: 1460156781}
+  - {fileID: 971584467}
+  - {fileID: 574054266}
+  - {fileID: 874120155}
+  - {fileID: 2113295784}
   EnhancePlayerBtns: {fileID: 423901257}
   BackBtn_2: {fileID: 892314194}
 --- !u!4 &68093928
@@ -28922,6 +28929,10 @@ PrefabInstance:
       propertyPath: exitButton
       value: 
       objectReference: {fileID: 187794308}
+    - target: {fileID: 2400927627346423175, guid: ab4296aa4dc084a78957ff8ed3a0c033, type: 3}
+      propertyPath: maxGameTime
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 2400927627346423175, guid: ab4296aa4dc084a78957ff8ed3a0c033, type: 3}
       propertyPath: startButton
       value: 

@@ -426,5 +426,5 @@ MonoBehaviour:
   coolTime: 10
   timer: 0
   buildCost: 5
-  enhanceCost: 0
+  enhanceCost: 5
   towerHp: 30
