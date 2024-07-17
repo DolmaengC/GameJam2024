@@ -7,13 +7,13 @@ using UnityEngine.UIElements;
 public class MTunitMovement : MonoBehaviour
 {
     public Scanner scanner;
-    private float unitSpeed = 2f;
-    private float attackRange = 3f;
-    public float cooltime = 1.1f;
-    private int unitHP = 10;
-    public float damage;
-    public int count;
-    public float speed;
+    private float unitSpeed ;
+    private float attackRange;
+    public float cooltime;
+    private int unitHP;
+    private float damage;
+    private int count;
+    private float bulletspeed;
     public List<GameObject> bulletPool;
     public GameObject bullet;
     private Animator animator;
@@ -178,7 +178,7 @@ public class MTunitMovement : MonoBehaviour
         Transform bullet = generateBullet().transform;
         bullet.position = transform.position;
         bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir);
-        bullet.GetComponent<BulletManager>().Init(damage, count, dir*speed);
+        bullet.GetComponent<BulletManager>().Init(damage, count, dir*bulletspeed);
     }
 
     private void magic() {
@@ -217,5 +217,33 @@ public class MTunitMovement : MonoBehaviour
                 animator.SetBool("Lview", false);
             }
         }
+    }
+    public void setUnitSpeed(float speed)
+    {
+        unitSpeed = speed;
+    }
+    public void setAttackRange(float range)
+    {
+        attackRange = range;
+    }
+    public void setCooltime(float cool)
+    {
+        cooltime = cool;
+    }
+    public void setUnitHP(int hp)
+    {
+        unitHP = hp;
+    }
+    public void setDamage(float damage)
+    {
+        this.damage = damage;
+    }
+    public void setCount(int count)
+    {
+        this.count = count;
+    }
+    public void setBulletspeed(float speed)
+    {
+        bulletspeed = speed;
     }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1955722217680242189}
   - component: {fileID: 2698306332314064373}
   - component: {fileID: 1994088569021106795}
+  - component: {fileID: 2928739017742324599}
   m_Layer: 8
   m_Name: Guard
   m_TagString: Untagged
@@ -175,3 +176,16 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0037850142, y: 0.013248682}
   m_Size: {x: 0.12236285, y: 0.15075362}
   m_Direction: 0
+--- !u!114 &2928739017742324599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702571035831021462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339df282342b3814188d792b999e6bc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Guardian: {fileID: 0}
