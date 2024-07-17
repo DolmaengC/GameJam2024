@@ -9,6 +9,7 @@ TagManager:
   - Area
   - Enemy
   - ExpItem
+  - IceSword
   layers:
   - Default
   - TransparentFX
