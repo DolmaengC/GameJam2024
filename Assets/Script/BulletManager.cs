@@ -22,7 +22,7 @@ public class BulletManager : MonoBehaviour
         this.per = per;
 
         if(per > -1){
-                rigid.velocity = dir *15;
+            rigid.velocity = dir *15;
         }
     }
 
