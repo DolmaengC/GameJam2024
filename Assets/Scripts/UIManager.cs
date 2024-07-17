@@ -14,21 +14,18 @@ public class UIManager : MonoBehaviour
     public float coin;
     public TMP_Text coinText;
     public GameObject storeMenuBtns;
-    public Button CreateTowerBtn;
-    public Button EnhanceTowerBtn;
-    public Button EnhancePlayerBtn;
+    public Button CreateTowerViewBtn;
+    public Button EnhanceTowerViewBtn;
+    public Button EnhancePlayerViewBtn;
 
     public GameObject createTowerBtns;
     public Button BackBtn_0;
     public TMP_Text[] createTowerBtnTexts;
+    public TMP_Text[] enhanceTowerBtnTexts;
 
     public GameObject EnhanceTowerBtns;
     public Button BackBtn_1;
-    public Button EnhanceTower1Button;
-    public Button EnhanceTower2Button;
-    public Button EnhanceTower3Button;
-    public Button EnhanceTower4Button;
-    public Button EnhanceTower5Button; 
+    public Button[] enhanceTowerButtons; // 배열로 변경
     public GameObject EnhancePlayerBtns;
     public Button BackBtn_2;
 
@@ -36,31 +33,34 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        CreateTowerBtn.onClick.AddListener(OnCreateTowerBtnClicked);
-        EnhanceTowerBtn.onClick.AddListener(OnEnhanceTowerButtonClicked);
-        EnhancePlayerBtn.onClick.AddListener(OnEnhancePlayerButtonClicked);
-        BackBtn_0.onClick.AddListener(OnBackButtonClicked);
-        BackBtn_1.onClick.AddListener(OnBackButtonClicked);
-        BackBtn_2.onClick.AddListener(OnBackButtonClicked);
-        EnhanceTower1Button.onClick.AddListener(OnEnhanceStateButtonClicked); 
-        EnhanceTower2Button.onClick.AddListener(OnEnhanceStateButtonClicked); 
-        EnhanceTower3Button.onClick.AddListener(OnEnhanceStateButtonClicked); 
-        EnhanceTower4Button.onClick.AddListener(OnEnhanceStateButtonClicked); 
-        EnhanceTower5Button.onClick.AddListener(OnEnhanceStateButtonClicked); 
-        
+        CreateTowerViewBtn.onClick.AddListener(OnCreateTowerViewBtnClicked);
+        EnhanceTowerViewBtn.onClick.AddListener(OnEnhanceTowerViewBtnClicked);
+        EnhancePlayerViewBtn.onClick.AddListener(OnEnhancePlayerViewBtnClicked);
+        BackBtn_0.onClick.AddListener(OnBackBtnClicked);
+        BackBtn_1.onClick.AddListener(OnBackBtnClicked);
+        BackBtn_2.onClick.AddListener(OnBackBtnClicked);
+
+        // EnhanceTower 버튼에 각각 리스너 추가
+        for (int i = 0; i < enhanceTowerButtons.Length; i++)
+        {
+            int index = i; // 로컬 복사본 생성
+            enhanceTowerButtons[i].onClick.AddListener(() => OnEnhanceStateButtonClicked(index));
+        }
+
         mainCamera = Camera.main;
         coin = 0f;
         UpdateCoin();
         LoadSelectedTowers();
-        InitializeTowerButtons();
+        UpdateCreateTowerButtonsText();
+        UpdateEnhanceTowerButtonsText();
     }
+
     void LoadSelectedTowers()
     {
         items = GameData.instance.selectedTowers.ToArray();
-        InitializeTowerButtons();
     }
 
-    void InitializeTowerButtons()
+    void UpdateCreateTowerButtonsText()
     {
         for (int i = 0; i < items.Length; i++)
         {
@@ -78,25 +78,45 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    void OnCreateTowerBtnClicked()
+    void UpdateEnhanceTowerButtonsText()
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (i < enhanceTowerBtnTexts.Length)
+            {
+                GameObject item = items[i];
+                TowerManager towerManager = item.GetComponent<TowerManager>();
+
+                if (towerManager != null)
+                {
+                    int buildCost = towerManager.enhanceCost;
+                    int state = TowerManager.towerStates.ContainsKey(item.name) ? TowerManager.towerStates[item.name] : 0;
+                    enhanceTowerBtnTexts[i].text = item.name + "(" + state +  "): " + buildCost.ToString();
+                }
+            }
+        }
+    }
+
+    void OnCreateTowerViewBtnClicked()
     {
         createTowerBtns.SetActive(true);
         storeMenuBtns.SetActive(false);
     }
 
-    void OnEnhanceTowerButtonClicked()
+    void OnEnhanceTowerViewBtnClicked()
     {
+        UpdateEnhanceTowerButtonsText(); // 강화 버튼 텍스트 업데이트
         EnhanceTowerBtns.SetActive(true);
         storeMenuBtns.SetActive(false);
     }
 
-    void OnEnhancePlayerButtonClicked()
+    void OnEnhancePlayerViewBtnClicked()
     {
         EnhancePlayerBtns.SetActive(true);
         storeMenuBtns.SetActive(false);
     }
 
-    void OnBackButtonClicked()
+    void OnBackBtnClicked()
     {
         createTowerBtns.SetActive(false);
         EnhanceTowerBtns.SetActive(false);
@@ -183,11 +203,30 @@ public class UIManager : MonoBehaviour
     }
 
     // 상태를 증가시키는 버튼 클릭 시 호출되는 메서드
-    void OnEnhanceStateButtonClicked()
+    void OnEnhanceStateButtonClicked(int index)
     {
-        foreach (var tower in GameData.instance.selectedTowers)
+        if (index >= 0 && index < items.Length)
         {
-            TowerManager.IncreaseState(tower.name);
+            GameObject item = items[index];
+            TowerManager towerManager = item.GetComponent<TowerManager>();
+
+            if (towerManager != null)
+            {
+                int enhanceCost = towerManager.enhanceCost;
+
+                // 코인이 충분한지 확인합니다.
+                if (coin >= enhanceCost)
+                {
+                    TowerManager.IncreaseState(item.name);
+                    coin -= enhanceCost;
+                    UpdateCoin();
+                    UpdateEnhanceTowerButtonsText(); // 상태 변경 후 버튼 텍스트 업데이트
+                }
+                else
+                {
+                    Debug.Log("Not enough coins to enhance this item.");
+                }
+            }
         }
     }
 }

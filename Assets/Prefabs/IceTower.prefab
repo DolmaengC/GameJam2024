@@ -195,7 +195,7 @@ MonoBehaviour:
   coolTime: 1
   timer: 0
   buildCost: 40
-  enhanceCost: 0
+  enhanceCost: 40
 --- !u!1 &4928480649522001479
 GameObject:
   m_ObjectHideFlags: 0
