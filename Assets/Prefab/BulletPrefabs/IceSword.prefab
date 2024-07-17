@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -2033811014864529445}
   m_Layer: 0
   m_Name: IceSword
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +157,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.52, y: 28.25}
+  m_Size: {x: 7.63, y: 28.25}
   m_EdgeRadius: 0
 --- !u!114 &-2033811014864529445
 MonoBehaviour:

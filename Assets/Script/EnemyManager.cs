@@ -69,9 +69,9 @@ public class EnemyManager : MonoBehaviour
 
         health -= collision.GetComponent<BulletManager>().damage;
         
-        if (GameObject.Find("IceSword") == true)
+        if (collision.CompareTag("Bullet"))
         {
-            speed = 0.3f;
+            speed -= 0.7f;
             EndIceTime();
         }
 
@@ -99,7 +99,7 @@ public class EnemyManager : MonoBehaviour
         // Destroy(gameObject, 1.5f);
     }
     IEnumerator EndIceTime() {
-        yield return new WaitForSeconds(5.0f);
-        speed = 1.0f;
+        yield return new WaitForSeconds(2.0f);
+        speed += 0.7f;
     }
 }
