@@ -426,4 +426,4 @@ MonoBehaviour:
   coolTime: 1
   timer: 0
   buildCost: 5
-  enhanceCost: 0
+  enhanceCost: 5
