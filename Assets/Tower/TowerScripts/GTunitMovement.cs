@@ -6,10 +6,10 @@ using UnityEngine;
 public class GTunitMovement : MonoBehaviour
 {
     public Scanner scanner;
-    private float unitSpeed = 2f;
-    private float attackRange = 1.1f;
-    public float cooltime = 1.1f;
-    private int unitHP = 10;
+    private float unitSpeed;
+    private float attackRange;
+    public float cooltime;
+    private int unitHP;
     private Animator animator;
     public RaycastHit2D[] hits;
     private bool IsAttacking = false;
@@ -140,5 +140,22 @@ public class GTunitMovement : MonoBehaviour
 
     void distroyUnit(){
         gameObject.SetActive(false);
+    }
+
+    public void setUnitSpeed(float speed)
+    {
+        unitSpeed = speed;
+    }
+    public void setAttackRange(float range)
+    {
+        attackRange = range;
+    }
+    public void setCooltime(float cool)
+    {
+        cooltime = cool;
+    }
+    public void setUnitHP(int hp)
+    {
+        unitHP = hp;
     }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4199058061446092129}
   - component: {fileID: 7751788951182009437}
   - component: {fileID: 8296791628983317535}
+  - component: {fileID: 4922284561707656450}
   m_Layer: 0
   m_Name: Magision
   m_TagString: Untagged
@@ -175,8 +176,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scanner: {fileID: 0}
   cooltime: 1.1
-  damage: 1
-  count: 0
-  speed: 0.03
   bulletPool: []
   bullet: {fileID: 7787081772859349754, guid: 72b0eab45554dc04898eada96137509d, type: 3}
+--- !u!114 &4922284561707656450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9222280635625236793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc40d7e2f745a05489f9e00da4d7450a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Magision: {fileID: 0}
