@@ -27,6 +27,10 @@ public class PlayerWeaponManager : MonoBehaviour
             weaponInitData[i][0], weaponInitData[i][1], 
             weaponInitData[i][2], weaponInitData[i][3], weaponInitData[i][4]);
         }
+    }
+
+    public void UpgradeSkill(int index) {
+        weaponManagerList[index].LevelUp(3, 3);
     }    
 }
 
