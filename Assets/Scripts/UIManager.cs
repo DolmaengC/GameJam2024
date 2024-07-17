@@ -31,6 +31,9 @@ public class UIManager : MonoBehaviour
 
     private Camera mainCamera;
 
+    private CapsuleCollider2D selectedCapsuleCollider2D;
+    private Scanner selectedScanner;
+
     void Start()
     {
         CreateTowerViewBtn.onClick.AddListener(OnCreateTowerViewBtnClicked);
@@ -173,6 +176,20 @@ public class UIManager : MonoBehaviour
                 selectedItem = Instantiate(items[itemIndex]);
                 selectedItemIdx = itemIndex;
                 isPlacingItem = true;
+
+                // BoxCollider2D와 Scanner 비활성화
+                selectedCapsuleCollider2D = selectedItem.GetComponent<CapsuleCollider2D>();
+                selectedScanner = selectedItem.GetComponent<Scanner>();
+                
+                if (selectedCapsuleCollider2D != null)
+                {
+                    selectedCapsuleCollider2D.enabled = false;
+                }
+
+                if (selectedScanner != null)
+                {
+                    selectedScanner.enabled = false;
+                }
             }
             else
             {
@@ -193,6 +210,17 @@ public class UIManager : MonoBehaviour
             // 코인 차감
             coin -= buildCost;
             UpdateCoin();
+        }
+
+        // BoxCollider2D와 Scanner 다시 활성화
+        if (selectedCapsuleCollider2D != null)
+        {
+            selectedCapsuleCollider2D.enabled = true;
+        }
+
+        if (selectedScanner != null)
+        {
+            selectedScanner.enabled = true;
         }
 
         // 초기화
