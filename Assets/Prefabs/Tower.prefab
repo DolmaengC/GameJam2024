@@ -66,6 +66,7 @@ GameObject:
   - component: {fileID: 6156341124415474708}
   - component: {fileID: 5358967721698966503}
   - component: {fileID: 6835567267415539349}
+  - component: {fileID: -3510326859028408253}
   m_Layer: 7
   m_Name: Tower
   m_TagString: Untagged
@@ -246,3 +247,25 @@ MonoBehaviour:
   timer: 0
   buildCost: 3
   enhanceCost: 0
+  towerMaxHp: 0
+  towerCurrentHp: 0
+  HPBar: {fileID: 0}
+--- !u!114 &-3510326859028408253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129968415057631077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackType: 1
+  bullet: {fileID: 2658078899744796145, guid: f283bcc86b82f43e28f0ed7a92ffbce3, type: 3}
+  bulletPool:
+  - {fileID: 2658078899744796145, guid: f283bcc86b82f43e28f0ed7a92ffbce3, type: 3}
+  damage: 11
+  count: 2
+  speed: 0.03

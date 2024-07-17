@@ -75,57 +75,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &2840706719391784428
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8356834889807216795}
-  - component: {fileID: 836410590677822818}
-  m_Layer: 0
-  m_Name: Weapon1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8356834889807216795
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2840706719391784428}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3433011205349036115}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &836410590677822818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2840706719391784428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackType: 1
-  bullet: {fileID: 6342589138825617310, guid: 0762f421744259c4bac5f8e0755768e6, type: 3}
-  bulletPool:
-  - {fileID: 6342589138825617310, guid: 0762f421744259c4bac5f8e0755768e6, type: 3}
-  damage: 11
-  count: 2
-  speed: 0.03
 --- !u!1 &2861668143523438764
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +160,8 @@ GameObject:
   - component: {fileID: 1572323272594360334}
   - component: {fileID: 1281838826501239872}
   - component: {fileID: 4727462485721547806}
+  - component: {fileID: 7807684866037706071}
+  - component: {fileID: 4166506721897477752}
   m_Layer: 7
   m_Name: ElectricTower
   m_TagString: Untagged
@@ -232,7 +183,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4857384036675577775}
-  - {fileID: 8356834889807216795}
   - {fileID: 7578638600113864393}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -316,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scanner: {fileID: 0}
-  weaponManager: {fileID: 836410590677822818}
+  weaponManager: {fileID: 0}
   coolTime: 1
   timer: 0
   buildCost: 10
@@ -324,6 +274,60 @@ MonoBehaviour:
   towerMaxHp: 10
   towerCurrentHp: 10
   HPBar: {fileID: 8169443003857640350}
+--- !u!114 &7807684866037706071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3610146269770174094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackType: 1
+  bullet: {fileID: 6342589138825617310, guid: 0762f421744259c4bac5f8e0755768e6, type: 3}
+  bulletPool:
+  - {fileID: 6342589138825617310, guid: 0762f421744259c4bac5f8e0755768e6, type: 3}
+  damage: 11
+  count: 2
+  speed: 0.03
+--- !u!70 &4166506721897477752
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3610146269770174094}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.008941174, y: -0.936687}
+  m_Size: {x: 1.8404188, y: 1.9518633}
+  m_Direction: 0
 --- !u!1 &4044058484276782892
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,81 +741,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4928480649522001479, guid: 94585543d4eb59c428d8d418ef14bbad, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4777886286640689339}
-    - targetCorrespondingSourceObject: {fileID: 4928480649522001479, guid: 94585543d4eb59c428d8d418ef14bbad, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4631520764699912706}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94585543d4eb59c428d8d418ef14bbad, type: 3}
---- !u!1 &5251290210885015698 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4928480649522001479, guid: 94585543d4eb59c428d8d418ef14bbad, type: 3}
-  m_PrefabInstance: {fileID: 902179621874478805}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &4777886286640689339
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5251290210885015698}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
---- !u!58 &4631520764699912706
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5251290210885015698}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.3}
-  serializedVersion: 2
-  m_Radius: 0.3
 --- !u!4 &7578638600113864393 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7325549208238624796, guid: 94585543d4eb59c428d8d418ef14bbad, type: 3}

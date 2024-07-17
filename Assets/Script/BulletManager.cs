@@ -8,7 +8,8 @@ public class BulletManager : MonoBehaviour
 {
     public float damage;
     public float speed;
-    public int per;
+    public int per; // 몇명 관통 가능한지
+    public int range;
 
     Rigidbody2D rigid;
 
