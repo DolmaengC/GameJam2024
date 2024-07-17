@@ -264,12 +264,6 @@ MonoBehaviour:
   - {fileID: 909484518}
   EnhancePlayerBtns: {fileID: 235946151}
   BackBtn_2: {fileID: 235946145}
-  enhancePlayerButtons:
-  - {fileID: 235946150}
-  - {fileID: 235946149}
-  - {fileID: 235946148}
-  - {fileID: 235946147}
-  - {fileID: 235946146}
 --- !u!4 &68093928
 Transform:
   m_ObjectHideFlags: 0
@@ -760,6 +754,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 864714445022949931, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+      propertyPath: m_text
+      value: Skill4
+      objectReference: {fileID: 0}
     - target: {fileID: 3074902224151419653, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -782,11 +780,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4844864757266850027, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5121419178810466553, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5474033042510757565, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+      propertyPath: m_text
+      value: Skill5
       objectReference: {fileID: 0}
     - target: {fileID: 5624000200775532914, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
       propertyPath: m_AnchorMax.x
@@ -828,6 +830,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8163896678450788045, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+      propertyPath: m_text
+      value: Skill3
+      objectReference: {fileID: 0}
     - target: {fileID: 8225935481933307415, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -835,6 +841,14 @@ PrefabInstance:
     - target: {fileID: 8225935481933307415, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8254018590118959992, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+      propertyPath: m_text
+      value: Skill1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8306317568192995624, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8370686391949076560, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -847,6 +861,10 @@ PrefabInstance:
     - target: {fileID: 8370686391949076560, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121132897668659119, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+      propertyPath: m_text
+      value: Skill2
       objectReference: {fileID: 0}
     - target: {fileID: 9200586548030314953, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
       propertyPath: m_Name
@@ -5455,7 +5473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  weaponManager: {fileID: 28607838}
+  playerWeaponManager: {fileID: 0}
   level: 0
   maxHP: 0
   currentHP: 0
@@ -5466,6 +5484,13 @@ MonoBehaviour:
   levelText: {fileID: 573438558}
   HPBar: {fileID: 1739516872}
   EXPBar: {fileID: 377731802}
+  enhancePlayerButtons:
+  - {fileID: 235946150}
+  - {fileID: 235946149}
+  - {fileID: 235946148}
+  - {fileID: 235946147}
+  - {fileID: 235946146}
+  skillPoint: 0
 --- !u!114 &486818379
 MonoBehaviour:
   m_ObjectHideFlags: 0
