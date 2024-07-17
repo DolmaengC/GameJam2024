@@ -318,8 +318,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scanner: {fileID: 0}
   weaponManager: {fileID: 0}
-  coolTime: 0.5
-  timer: 0
   buildCost: 5
   enhanceCost: 5
   towerMaxHp: 5
@@ -337,6 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scanner: {fileID: 0}
   attackType: 1
   bullet: {fileID: 8141517566298652380, guid: 170782e61b68d486b801d2bcf2e182a1, type: 3}
   bulletPool:
@@ -344,6 +343,8 @@ MonoBehaviour:
   damage: 0.5
   count: 2
   speed: 0.03
+  coolTime: 2
+  timer: 0
 --- !u!70 &648122483549038458
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
