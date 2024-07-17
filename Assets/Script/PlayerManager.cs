@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerManager : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public WeaponManager weaponManager;
+    public PlayerWeaponManager playerWeaponManager;
     public int level;
     public float maxHP;
     public float currentHP;
@@ -21,11 +21,22 @@ public class PlayerManager : MonoBehaviour
     public Slider EXPBar;
 
     private bool isTakingDamage = false;
-
+    public Button[] enhancePlayerButtons; 
+    public int skillPoint;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         initializeStatus();
+        playerWeaponManager = GetComponent<PlayerWeaponManager>();
+    }
+    void Start()
+    {
+        
+        for (int i = 0; i < enhancePlayerButtons.Length; i++)
+        {
+            int index = i; // 로컬 복사본 생성
+            enhancePlayerButtons[i].onClick.AddListener(() => OnEnhancePlayerButtonClicked(index));
+        }
     }
 
     private void OnCollisionStay2D(Collision2D other)
@@ -84,6 +95,7 @@ public class PlayerManager : MonoBehaviour
                     level++;
                     currentEXP -= maxEXP;
                     maxEXP = level * 10;
+                    skillPoint++;
                     UpdateLevel();
                 }
                 UpdateEXP();
@@ -125,5 +137,12 @@ public class PlayerManager : MonoBehaviour
     public void Dead()
     {
         GameManager.instance.EndGame(false);
+    }
+    void OnEnhancePlayerButtonClicked(int index)
+    {
+        if (skillPoint > 0) {
+            skillPoint --; 
+            playerWeaponManager.UpgradeSkill(index);
+        }
     }
 }

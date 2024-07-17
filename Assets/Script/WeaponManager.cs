@@ -56,7 +56,7 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    void LevelUp(float damage, int count)
+    public void LevelUp(float damage, int count)
     {
         this.damage = damage;
         this.count += count;

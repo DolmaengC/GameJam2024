@@ -31,7 +31,6 @@ public class UIManager : MonoBehaviour
     public GameObject[] enhanceTowerImg;
     public GameObject EnhancePlayerBtns;
     public Button BackBtn_2;
-    public Button[] enhancePlayerButtons; // 배열로 변경
     private Camera mainCamera;
 
     private CapsuleCollider2D selectedCapsuleCollider2D;
@@ -61,12 +60,6 @@ public class UIManager : MonoBehaviour
             enhanceTowerButtons[i].onClick.AddListener(() => OnEnhanceTowerButtonClicked(index));
         }
 
-        // EnhancePlayer 버튼에 각각 리스너 추가
-        for (int i = 0; i < enhanceTowerButtons.Length; i++)
-        {
-            int index = i; // 로컬 복사본 생성
-            enhanceTowerButtons[i].onClick.AddListener(() => OnEnhancePlayerButtonClicked(index));
-        }
 
         mainCamera = Camera.main;
         coin = 0f;
@@ -309,8 +302,4 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    void OnEnhancePlayerButtonClicked(int index)
-    {
-
-    }
 }
