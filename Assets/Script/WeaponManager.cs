@@ -17,7 +17,7 @@ public class WeaponManager : MonoBehaviour
     void Awake()
     {
         scanner = GetComponent<Scanner>();
-        bulletPool = new List<GameObject>();
+        bulletPool = new List<GameObject>();  
     }
 
     void Update()
@@ -124,4 +124,18 @@ public class WeaponManager : MonoBehaviour
         bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir);
         bullet.GetComponent<BulletManager>().Init(damage, count, dir);
     }
+
+    public void setData(GameObject bullet, Scanner scanner, float attackType, float damage, float count, float speed, float coolTime)
+    {
+        this.bullet = bullet;
+        this.scanner = scanner;
+        this.attackType = Mathf.FloorToInt(attackType);
+        this.damage = damage;
+        this.count = Mathf.FloorToInt(count);
+        this.speed = speed;
+        this.coolTime = coolTime;
+        bulletPool.Add(bullet);
+    }
+    
+    
 }
