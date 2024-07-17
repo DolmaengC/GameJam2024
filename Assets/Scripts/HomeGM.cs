@@ -44,6 +44,8 @@ public class HomeGM : MonoBehaviour
         playerSettingButton.onClick.AddListener(OnPlayerSettingButtonClicked);
         towerSettingButton.onClick.AddListener(OnTowerSettingButtonClicked);
 
+        exitButton.onClick.AddListener(OnExitButtonClicked);
+
         UpdateStageText();
         
     }
@@ -75,7 +77,7 @@ public class HomeGM : MonoBehaviour
     void OnExitButtonClicked()
     {
         Debug.Log("Exit Button Clicked");
-        // Application.Quit();
+        GameExit();
     }
 
     // for Home parts
@@ -119,5 +121,13 @@ public class HomeGM : MonoBehaviour
         playerSettingParts.SetActive(false);
         towerSettingParts.SetActive(true);
     }
+    public void GameExit()
+{
+    #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+    #else
+        Application.Quit();
+    #endif
+}
     
 }

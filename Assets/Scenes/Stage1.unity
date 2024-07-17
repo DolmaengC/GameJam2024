@@ -758,6 +758,18 @@ PrefabInstance:
       propertyPath: m_text
       value: Skill4
       objectReference: {fileID: 0}
+    - target: {fileID: 2851924175854126222, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851924175854126222, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851924175854126222, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3074902224151419653, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -780,7 +792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4844864757266850027, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5121419178810466553, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
       propertyPath: m_IsActive
@@ -826,6 +838,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7137465848631861958, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7137465848631861958, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7137465848631861958, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8073877940319563880, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -848,7 +872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8306317568192995624, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8370686391949076560, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -14784,15 +14808,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8552325523150275946, guid: f7926037c99d12048adc6d45c4214008, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8552325523150275946, guid: f7926037c99d12048adc6d45c4214008, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8552325523150275946, guid: f7926037c99d12048adc6d45c4214008, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
