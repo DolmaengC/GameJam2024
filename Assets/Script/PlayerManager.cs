@@ -23,15 +23,17 @@ public class PlayerManager : MonoBehaviour
     private bool isTakingDamage = false;
     public Button[] enhancePlayerButtons; 
     public int skillPoint;
+    private Coroutine damageCoroutine;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         initializeStatus();
         playerWeaponManager = GetComponent<PlayerWeaponManager>();
     }
+
     void Start()
     {
-        
         for (int i = 0; i < enhancePlayerButtons.Length; i++)
         {
             int index = i; // 로컬 복사본 생성
@@ -39,16 +41,20 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (!other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") && damageCoroutine == null)
         {
-            return;
+            damageCoroutine = StartCoroutine(TakeDamage(1f, other.gameObject.GetComponent<EnemyManager>().damage));
         }
+    }
 
-        if (!isTakingDamage)
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy") && damageCoroutine != null)
         {
-            StartCoroutine(TakeDamage(1f, other.gameObject.GetComponent<EnemyManager>().damage));
+            StopCoroutine(damageCoroutine);
+            damageCoroutine = null;
         }
     }
 
@@ -138,10 +144,11 @@ public class PlayerManager : MonoBehaviour
     {
         GameManager.instance.EndGame(false);
     }
+
     void OnEnhancePlayerButtonClicked(int index)
     {
         if (skillPoint > 0) {
-            skillPoint --; 
+            skillPoint--; 
             playerWeaponManager.UpgradeSkill(index);
         }
     }

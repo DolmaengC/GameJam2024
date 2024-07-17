@@ -7,10 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/HomeScene.unity
-    guid: 20cb6e7b716fb458aba1836a1e5efb84
-  - enabled: 1
-    path: Assets/Scenes/CJH_Stage1.unity
-    guid: 5dcb325f511034290ad20da6cde1639e
+    guid: 27c5c38c71ba728418b4b453afc1a364
   - enabled: 1
     path: Assets/Scenes/Stage1.unity
     guid: 2dcc408634defbd4c8363771d4ab2783
