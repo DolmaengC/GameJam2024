@@ -144,7 +144,7 @@ TextureImporter:
         serializedVersion: 2
         x: 96
         y: 0
-        width: 45
+        width: 48
         height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -163,9 +163,9 @@ TextureImporter:
       name: D_Attack_3
       rect:
         serializedVersion: 2
-        x: 141
+        x: 144
         y: 0
-        width: 45
+        width: 48
         height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -184,7 +184,7 @@ TextureImporter:
       name: D_Attack_4
       rect:
         serializedVersion: 2
-        x: 186
+        x: 192
         y: 0
         width: 48
         height: 48
@@ -205,9 +205,9 @@ TextureImporter:
       name: D_Attack_5
       rect:
         serializedVersion: 2
-        x: 234
+        x: 240
         y: 0
-        width: 54
+        width: 48
         height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
