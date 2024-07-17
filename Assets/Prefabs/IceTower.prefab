@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 5676776089309614798}
   - component: {fileID: 8508584558892012029}
   - component: {fileID: 4757911446947281989}
+  - component: {fileID: 188292037862575369}
   m_Layer: 7
   m_Name: IceTower
   m_TagString: Untagged
@@ -189,6 +190,41 @@ MonoBehaviour:
   towerMaxHp: 40
   towerCurrentHp: 40
   HPBar: {fileID: 4339750366124333072}
+--- !u!70 &188292037862575369
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794591558966923202}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -1.0302434}
+  m_Size: {x: 1.9198599, y: 1.9566545}
+  m_Direction: 0
 --- !u!1 &2039557318257725787
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +402,6 @@ GameObject:
   - component: {fileID: 3055576421138434709}
   - component: {fileID: 8621303077216833120}
   - component: {fileID: 3686406337205732783}
-  - component: {fileID: 1577026903132439595}
   m_Layer: 0
   m_Name: IceTower
   m_TagString: Untagged
@@ -489,41 +524,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!58 &1577026903132439595
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4928480649522001479}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.3}
-  serializedVersion: 2
-  m_Radius: 0.3
 --- !u!1 &5848671891848719741
 GameObject:
   m_ObjectHideFlags: 0
