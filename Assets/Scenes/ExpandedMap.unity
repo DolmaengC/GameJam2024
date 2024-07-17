@@ -4767,15 +4767,19 @@ MonoBehaviour:
   - {fileID: 3129968415057631077, guid: f2caaef06bc504bb6b06595a5601e97d, type: 3}
   - {fileID: 3129968415057631077, guid: f2caaef06bc504bb6b06595a5601e97d, type: 3}
   - {fileID: 3129968415057631077, guid: f2caaef06bc504bb6b06595a5601e97d, type: 3}
-  coin: {fileID: 0}
+  coin: 0
+  coinText: {fileID: 0}
   storeMenuBtns: {fileID: 2135712183}
-  CreateTowerBtn: {fileID: 78108139}
-  EnhanceTowerBtn: {fileID: 1603673661}
-  EnhancePlayerBtn: {fileID: 1084319183}
+  CreateTowerViewBtn: {fileID: 0}
+  EnhanceTowerViewBtn: {fileID: 0}
+  EnhancePlayerViewBtn: {fileID: 0}
   createTowerBtns: {fileID: 66267402}
   BackBtn_0: {fileID: 990364303}
+  createTowerBtnTexts: []
+  enhanceTowerBtnTexts: []
   EnhanceTowerBtns: {fileID: 1075477465}
   BackBtn_1: {fileID: 1899295456}
+  enhanceTowerButtons: []
   EnhancePlayerBtns: {fileID: 1075477465}
   BackBtn_2: {fileID: 306240166}
 --- !u!4 &68093928
@@ -9468,7 +9472,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1de3fc29fb0fc734c8a2877693c1a472, type: 2}
+  - {fileID: 2100000, guid: d2f0c9cf960a5c741bdbd0cad3661a4d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14256,13 +14260,11 @@ MonoBehaviour:
   currentHP: 0
   maxEXP: 0
   currentEXP: 0
-  coin: 0
   HPText: {fileID: 837833241}
   EXPText: {fileID: 1441060559}
   levelText: {fileID: 2073443128}
   HPBar: {fileID: 1532017805}
   EXPBar: {fileID: 1403804015}
-  coinText: {fileID: 281337765}
 --- !u!1 &197463066
 GameObject:
   m_ObjectHideFlags: 0
@@ -28669,7 +28671,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1de3fc29fb0fc734c8a2877693c1a472, type: 2}
+  - {fileID: 2100000, guid: d2f0c9cf960a5c741bdbd0cad3661a4d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -57400,7 +57402,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1de3fc29fb0fc734c8a2877693c1a472, type: 2}
+  - {fileID: 2100000, guid: d2f0c9cf960a5c741bdbd0cad3661a4d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -59076,7 +59078,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1de3fc29fb0fc734c8a2877693c1a472, type: 2}
+  - {fileID: 2100000, guid: d2f0c9cf960a5c741bdbd0cad3661a4d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

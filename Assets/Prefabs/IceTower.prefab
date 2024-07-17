@@ -50,7 +50,6 @@ GameObject:
   - component: {fileID: 5676776089309614798}
   - component: {fileID: 8508584558892012029}
   - component: {fileID: 4757911446947281989}
-  - component: {fileID: 2132361547841992285}
   m_Layer: 7
   m_Name: IceTower
   m_TagString: Untagged
@@ -191,41 +190,6 @@ MonoBehaviour:
   towerMaxHp: 40
   towerCurrentHp: 40
   HPBar: {fileID: 4339750366124333072}
---- !u!70 &2132361547841992285
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1794591558966923202}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.02319765, y: -0.02319777}
-  m_Size: {x: 1.3943586, y: 3.7605107}
-  m_Direction: 0
 --- !u!1 &2039557318257725787
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +497,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4928480649522001479}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

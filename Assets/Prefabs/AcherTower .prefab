@@ -142,7 +142,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238858049764506471}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -245,7 +245,6 @@ GameObject:
   - component: {fileID: 3921376976213651888}
   - component: {fileID: 6653261121698699830}
   - component: {fileID: 1889476750255738629}
-  - component: {fileID: 8317886243712962967}
   m_Layer: 7
   m_Name: 'AcherTower '
   m_TagString: Untagged
@@ -386,41 +385,6 @@ MonoBehaviour:
   towerMaxHp: 5
   towerCurrentHp: 5
   HPBar: {fileID: 3813655074306858132}
---- !u!70 &8317886243712962967
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2347489144147693011}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0057086945, y: -0.022834778}
-  m_Size: {x: 1.7877979, y: 3.6716638}
-  m_Direction: 0
 --- !u!1 &2929180892019272075
 GameObject:
   m_ObjectHideFlags: 0
