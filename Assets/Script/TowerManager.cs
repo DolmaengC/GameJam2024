@@ -11,6 +11,9 @@ public class TowerManager : MonoBehaviour
     public int buildCost;
     public int enhanceCost;
     public static Dictionary<string, int> towerStates = new Dictionary<string, int>(); // 타워 종류별 상태를 저장할 static 변수
+    public int towerHp = 30;
+    private bool IsDamagging = false;
+    SpriteRenderer spriteRenderer;
 
     private Animator animator;
 
@@ -18,6 +21,7 @@ public class TowerManager : MonoBehaviour
     void Awake()
     {
         scanner = GetComponent<Scanner>();
+        spriteRenderer = transform.Find("AcherTower Variant").GetComponent<SpriteRenderer>();
 
         // 자식 오브젝트에서 애니메이터를 찾습니다.
         animator = GetComponentInChildren<Animator>();
@@ -84,5 +88,40 @@ public class TowerManager : MonoBehaviour
                 }
             }
         }
+    }
+    private void OnCollisionStay2D(Collision2D other) {
+        if(other.gameObject.CompareTag("Enemy")&&!IsDamagging) {
+            StartCoroutine(Damagging(1f));
+        }   
+    }
+    IEnumerator Damagging(float cooltime) {
+        float animationtime = 0.05f;
+        Debug.Log("Damaged");
+        towerHp -= 5;
+        IsDamagging = true;
+        Color towercolor = spriteRenderer.color;
+        spriteRenderer.color = new Color(towercolor.r, towercolor.b * 0.75f, towercolor.g * 0.75f, 1);
+        yield return new WaitForSeconds(animationtime);
+        spriteRenderer.color = new Color(towercolor.r, towercolor.b * 0.5f, towercolor.g * 0.5f, 1);
+        yield return new WaitForSeconds(animationtime);
+        spriteRenderer.color = new Color(towercolor.r, towercolor.b * 0.25f, towercolor.g * 0.25f, 1);
+        yield return new WaitForSeconds(animationtime);
+        spriteRenderer.color = new Color(towercolor.r, 0, 0, 1);
+        yield return new WaitForSeconds(animationtime);
+        spriteRenderer.color = new Color(towercolor.r, towercolor.b * 0.25f, towercolor.g * 0.25f, 1);
+        yield return new WaitForSeconds(animationtime);
+        spriteRenderer.color = new Color(towercolor.r, towercolor.b * 0.5f, towercolor.g * 0.5f, 1);
+        yield return new WaitForSeconds(animationtime);
+        spriteRenderer.color = new Color(towercolor.r, towercolor.b * 0.75f, towercolor.g * 0.75f, 1);
+        yield return new WaitForSeconds(animationtime);
+        spriteRenderer.color = towercolor;
+        if(towerHp<=0) {
+            distroytower();
+        }
+        yield return new WaitForSeconds(cooltime);
+        IsDamagging = false;
+    }
+    void distroytower() {
+        gameObject.SetActive(false);
     }
 }
