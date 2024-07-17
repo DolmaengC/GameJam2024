@@ -68,6 +68,13 @@ public class EnemyManager : MonoBehaviour
         }
 
         health -= collision.GetComponent<BulletManager>().damage;
+        
+        if (GameObject.Find("IceSword") == true)
+        {
+            speed = 0.3f;
+            EndIceTime();
+        }
+
         if (health <= 0)
         {
             Dead();
@@ -90,5 +97,9 @@ public class EnemyManager : MonoBehaviour
         // isLive = false;
         // anim.SetTrigger("dead");
         // Destroy(gameObject, 1.5f);
+    }
+    IEnumerator EndIceTime() {
+        yield return new WaitForSeconds(5.0f);
+        speed = 1.0f;
     }
 }

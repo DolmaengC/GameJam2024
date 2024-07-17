@@ -1373,18 +1373,14 @@ MonoBehaviour:
   EnhancePlayerViewBtn: {fileID: 2014428665}
   createTowerBtns: {fileID: 533144078}
   BackBtn_0: {fileID: 2101144912}
+  createTowerButtons: []
+  createTowerImg: []
   createTowerBtnTexts:
   - {fileID: 1417954146}
   - {fileID: 1454747669}
   - {fileID: 101900074}
   - {fileID: 1217544154}
   - {fileID: 1794841127}
-  enhanceTowerBtnTexts:
-  - {fileID: 890555556}
-  - {fileID: 989103402}
-  - {fileID: 729520527}
-  - {fileID: 1139445403}
-  - {fileID: 2071286867}
   EnhanceTowerBtns: {fileID: 1076381465}
   BackBtn_1: {fileID: 2101144912}
   enhanceTowerButtons:
@@ -1393,8 +1389,16 @@ MonoBehaviour:
   - {fileID: 1022510143}
   - {fileID: 309103979}
   - {fileID: 542652587}
+  enhanceTowerBtnTexts:
+  - {fileID: 890555556}
+  - {fileID: 989103402}
+  - {fileID: 729520527}
+  - {fileID: 1139445403}
+  - {fileID: 2071286867}
+  enhanceTowerImg: []
   EnhancePlayerBtns: {fileID: 1076381465}
   BackBtn_2: {fileID: 28201096}
+  enhancePlayerButtons: []
 --- !u!4 &68093928
 Transform:
   m_ObjectHideFlags: 0
@@ -55282,6 +55286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scanner: {fileID: 0}
   attackType: 1
   bullet: {fileID: 3365453682046334567, guid: 511b51f2d2c0b4e398e40f5be946c984, type: 3}
   bulletPool:
@@ -55289,6 +55294,8 @@ MonoBehaviour:
   damage: 11
   count: 2
   speed: 0.01
+  coolTime: 0
+  timer: 0
 --- !u!1 &1452803523
 GameObject:
   m_ObjectHideFlags: 0
