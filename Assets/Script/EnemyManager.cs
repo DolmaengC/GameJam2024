@@ -14,6 +14,7 @@ public class EnemyManager : MonoBehaviour
     public RuntimeAnimatorController[] animCon;
 
     bool isLive;
+    float originalSpeed;
 
     Rigidbody2D rigid;
     Animator anim;
@@ -58,6 +59,7 @@ public class EnemyManager : MonoBehaviour
     {
         isLive = true;
         health = maxHealth;
+        originalSpeed = speed;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -68,6 +70,17 @@ public class EnemyManager : MonoBehaviour
         }
 
         health -= collision.GetComponent<BulletManager>().damage;
+
+        if (collision.name == "IceSword")
+        {
+            Debug.Log("IceSword hit detected.");
+            if (speed == originalSpeed) // 현재 속도가 원래 속도인지 확인
+            {
+                speed = 0.3f;
+                StartCoroutine(EndIceTime());
+            }
+        }
+
         if (health <= 0)
         {
             Dead();
@@ -81,14 +94,18 @@ public class EnemyManager : MonoBehaviour
         {
             Instantiate(expItemPrefab, transform.position, Quaternion.identity);
         }
-        
+
         gameObject.SetActive(false);
         GameManager.instance.IncreaseScore(score);
-
-        
 
         // isLive = false;
         // anim.SetTrigger("dead");
         // Destroy(gameObject, 1.5f);
+    }
+
+    IEnumerator EndIceTime()
+    {
+        yield return new WaitForSeconds(2.0f);
+        speed = originalSpeed; // 원래 속도로 복귀
     }
 }

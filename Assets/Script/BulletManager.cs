@@ -10,11 +10,13 @@ public class BulletManager : MonoBehaviour
     public float speed;
     public int per; // 몇명 관통 가능한지
     public int range;
+    public EnemyManager enemyManager;
 
     Rigidbody2D rigid;
 
     void Awake(){
         rigid = this.GetComponent<Rigidbody2D>();
+        enemyManager = FindObjectOfType<EnemyManager>();
     }
 
     public void Init(float damage, int per, Vector3 dir){
