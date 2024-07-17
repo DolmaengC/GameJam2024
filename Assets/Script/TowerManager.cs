@@ -21,7 +21,7 @@ public class TowerManager : MonoBehaviour
     void Awake()
     {
         scanner = GetComponent<Scanner>();
-        spriteRenderer = transform.Find("AcherTower Variant").GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         // 자식 오브젝트에서 애니메이터를 찾습니다.
         animator = GetComponentInChildren<Animator>();
