@@ -175,3 +175,4 @@ MonoBehaviour:
   speed: 0
   per: 0
   range: 0
+  enemyManager: {fileID: 0}
