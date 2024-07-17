@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class TowerManager : MonoBehaviour
 {
@@ -11,7 +13,9 @@ public class TowerManager : MonoBehaviour
     public int buildCost;
     public int enhanceCost;
     public static Dictionary<string, int> towerStates = new Dictionary<string, int>(); // 타워 종류별 상태를 저장할 static 변수
-    public int towerHp = 30;
+    public float towerMaxHp;
+    public float towerCurrentHp;
+    public Slider HPBar;
     private bool IsDamagging = false;
     SpriteRenderer spriteRenderer;
 
@@ -39,10 +43,15 @@ public class TowerManager : MonoBehaviour
             animator.SetInteger("state", towerStates[towerName]);
         }
     }
-
+    void Start()
+    {
+        towerCurrentHp = towerMaxHp;
+        UpdateHP();
+    }
     // Update is called once per frame
     void Update()
     {
+        UpdateHP();
         timer += Time.deltaTime;
 
         if (timer > coolTime)
@@ -91,13 +100,14 @@ public class TowerManager : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D other) {
         if(other.gameObject.CompareTag("Enemy")&&!IsDamagging) {
-            StartCoroutine(Damagging(1f));
+            StartCoroutine(Damagging(1f, other.gameObject.GetComponent<EnemyManager>().damage));
         }   
     }
-    IEnumerator Damagging(float cooltime) {
+    IEnumerator Damagging(float cooltime, float damage) {
         float animationtime = 0.05f;
         Debug.Log("Damaged");
-        towerHp -= 5;
+        towerCurrentHp -= damage;
+        UpdateHP();
         IsDamagging = true;
         Color towercolor = spriteRenderer.color;
         spriteRenderer.color = new Color(towercolor.r, towercolor.b * 0.75f, towercolor.g * 0.75f, 1);
@@ -115,7 +125,7 @@ public class TowerManager : MonoBehaviour
         spriteRenderer.color = new Color(towercolor.r, towercolor.b * 0.75f, towercolor.g * 0.75f, 1);
         yield return new WaitForSeconds(animationtime);
         spriteRenderer.color = towercolor;
-        if(towerHp<=0) {
+        if(towerCurrentHp<=0) {
             distroytower();
         }
         yield return new WaitForSeconds(cooltime);
@@ -123,5 +133,10 @@ public class TowerManager : MonoBehaviour
     }
     void distroytower() {
         gameObject.SetActive(false);
+    }
+
+    public void UpdateHP() {
+        HPBar.value = towerCurrentHp;
+        HPBar.maxValue = towerMaxHp;
     }
 }
