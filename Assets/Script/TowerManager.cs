@@ -25,6 +25,7 @@ public class TowerManager : MonoBehaviour
     void Awake()
     {
         scanner = GetComponent<Scanner>();
+        weaponManager = GetComponent<WeaponManager>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         // 자식 오브젝트에서 애니메이터를 찾습니다.

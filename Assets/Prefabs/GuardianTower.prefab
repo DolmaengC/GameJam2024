@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 6912997172401357107}
   - component: {fileID: 4568660608535081112}
   - component: {fileID: 7810588501524049530}
+  - component: {fileID: 7713947190190351871}
+  - component: {fileID: 7411304794068480763}
+  - component: {fileID: 1548413306161053171}
   m_Layer: 7
   m_Name: GuardianTower
   m_TagString: Untagged
@@ -35,7 +38,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1778448684532780535}
-  - {fileID: 2216052979209787757}
   - {fileID: 6834928712585479278}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -146,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scanner: {fileID: 0}
-  weaponManager: {fileID: 3761666314251350147}
+  weaponManager: {fileID: 0}
   coolTime: 1
   timer: 0
   buildCost: 30
@@ -154,6 +156,79 @@ MonoBehaviour:
   towerMaxHp: 30
   towerCurrentHp: 30
   HPBar: {fileID: 8926907846073294996}
+--- !u!114 &7713947190190351871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366886714991690043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackType: 1
+  bullet: {fileID: 8450748120671037775, guid: 8150910eb2e9b4e9e893c96e2fa4cc25, type: 3}
+  bulletPool:
+  - {fileID: 8450748120671037775, guid: 8150910eb2e9b4e9e893c96e2fa4cc25, type: 3}
+  damage: 11
+  count: 2
+  speed: 0.03
+--- !u!114 &7411304794068480763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366886714991690043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackType: 1
+  bullet: {fileID: 6342589138825617310, guid: 0762f421744259c4bac5f8e0755768e6, type: 3}
+  bulletPool:
+  - {fileID: 6342589138825617310, guid: 0762f421744259c4bac5f8e0755768e6, type: 3}
+  damage: 11
+  count: 2
+  speed: 0.03
+--- !u!70 &1548413306161053171
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366886714991690043}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.016171217, y: -0.9918275}
+  m_Size: {x: 1.7438703, y: 1.8193359}
+  m_Direction: 0
 --- !u!1 &654399494969067468
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,57 +430,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &2761547914142089232
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2216052979209787757}
-  - component: {fileID: 3761666314251350147}
-  m_Layer: 0
-  m_Name: Weapon1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2216052979209787757
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2761547914142089232}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6326992740480217948}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3761666314251350147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2761547914142089232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackType: 1
-  bullet: {fileID: 6342589138825617310, guid: 0762f421744259c4bac5f8e0755768e6, type: 3}
-  bulletPool:
-  - {fileID: 6342589138825617310, guid: 0762f421744259c4bac5f8e0755768e6, type: 3}
-  damage: 11
-  count: 2
-  speed: 0.03
 --- !u!1 &3609070526776755998
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,7 +628,6 @@ GameObject:
   - component: {fileID: 5235892944804560815}
   - component: {fileID: 5402368662873083231}
   - component: {fileID: 1441472522889168883}
-  - component: {fileID: 672970148766311617}
   m_Layer: 0
   m_Name: GuardianTower
   m_TagString: Untagged
@@ -727,51 +750,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!61 &672970148766311617
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8488963803105581177}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.3}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.7, y: 1.3}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
-  m_EdgeRadius: 0
 --- !u!1 &8687063452896962617
 GameObject:
   m_ObjectHideFlags: 0
