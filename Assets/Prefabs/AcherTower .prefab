@@ -378,10 +378,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scanner: {fileID: 0}
   weaponManager: {fileID: 2740340908562545198}
-  coolTime: 1
+  coolTime: 10
   timer: 0
   buildCost: 5
   enhanceCost: 5
+  towerHp: 30
 --- !u!70 &8317886243712962967
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
