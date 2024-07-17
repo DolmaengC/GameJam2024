@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 3830643200687065921}
   - component: {fileID: 6190478988536531944}
   - component: {fileID: 2237970902529081645}
+  - component: {fileID: 4102704508789433777}
   m_Layer: 7
   m_Name: FireTower
   m_TagString: Untagged
@@ -173,7 +174,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1027144129574415764}
-  - {fileID: 5339987558007628643}
   - {fileID: 7325549208238624796}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scanner: {fileID: 0}
-  weaponManager: {fileID: 8797216467812514003}
+  weaponManager: {fileID: 0}
   coolTime: 1
   timer: 0
   buildCost: 20
@@ -292,45 +292,13 @@ MonoBehaviour:
   towerMaxHp: 20
   towerCurrentHp: 20
   HPBar: {fileID: 9181813744564702339}
---- !u!1 &2624550063724636942
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5339987558007628643}
-  - component: {fileID: 8797216467812514003}
-  m_Layer: 0
-  m_Name: Weapon1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5339987558007628643
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2624550063724636942}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7393595583147665968}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8797216467812514003
+--- !u!114 &4102704508789433777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2624550063724636942}
+  m_GameObject: {fileID: 1956386582275742733}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
