@@ -20199,6 +20199,10 @@ PrefabInstance:
       value: MainPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 6430885920932751704, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
+      propertyPath: count
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6430885920932751704, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
       propertyPath: speed
       value: -150
       objectReference: {fileID: 0}
@@ -20258,6 +20262,7 @@ SceneRoots:
   - {fileID: 5058496452772446490}
   - {fileID: 1802776296900219943}
   - {fileID: 4952421409739686763}
+  - {fileID: 235946144}
   - {fileID: 1179565345}
   - {fileID: 1503052065}
   - {fileID: 1613378440}
@@ -20267,4 +20272,3 @@ SceneRoots:
   - {fileID: 1211730970}
   - {fileID: 221316679}
   - {fileID: 68093928}
-  - {fileID: 235946144}

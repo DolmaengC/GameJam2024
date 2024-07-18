@@ -28,6 +28,8 @@ public class EnemyManager : MonoBehaviour
         spriter = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         scanner = GetComponent<Scanner>();
+        originalSpeed = speed;
+        speed = originalSpeed;
     }
 
     void FixedUpdate()
@@ -64,19 +66,19 @@ public class EnemyManager : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Bullet"))
+        if (!collision.CompareTag("Bullet") && !collision.CompareTag("IceSword"))
         {
             return;
         }
 
         health -= collision.GetComponent<BulletManager>().damage;
 
-        if (collision.name == "IceSword")
+        if (collision.CompareTag("IceSword"))
         {
             Debug.Log("IceSword hit detected.");
             if (speed == originalSpeed) // 현재 속도가 원래 속도인지 확인
             {
-                speed = 0.3f;
+                speed = 0.2f;
                 StartCoroutine(EndIceTime());
             }
         }
@@ -95,6 +97,7 @@ public class EnemyManager : MonoBehaviour
             Instantiate(expItemPrefab, transform.position, Quaternion.identity);
         }
 
+        speed = originalSpeed;
         gameObject.SetActive(false);
         GameManager.instance.IncreaseScore(score);
 
@@ -105,7 +108,7 @@ public class EnemyManager : MonoBehaviour
 
     IEnumerator EndIceTime()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(3.0f);
         speed = originalSpeed; // 원래 속도로 복귀
     }
 }
