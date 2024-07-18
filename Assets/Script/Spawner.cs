@@ -7,35 +7,39 @@ public class Spawner : MonoBehaviour
     public Transform[] spawnPoints;
     public GameObject[] enemyList;
     public List<GameObject>[] enemyPools;
-    int level;
-    float timer;
+
+    public List<float> timerList;
 
     void Awake()
     {
         spawnPoints = GetComponentsInChildren<Transform>();
         enemyPools = new List<GameObject>[enemyList.Length];
+        timerList = new List<float>();
         for (int i = 0; i < enemyList.Length; i++)
         {
             enemyPools[i] = new List<GameObject>();
+            timerList.Add(0);
         }
     }
 
     void Update()
     {
-        timer += Time.deltaTime;
-        level = Mathf.Min(Mathf.FloorToInt(timer / 10), enemyList.Length); // level은 enemyList의 길이를 넘지 않도록 제한
 
-        // 올바른 구문으로 수정
-        if (timer > enemyList[level].GetComponent<EnemyManager>().spawnTime)
+        for (int i = 0; i < enemyList.Length; i++)
         {
-            timer = 0;
-            Spawn();
+            timerList[i] += Time.deltaTime;
+            if (timerList[i] > enemyList[i].GetComponent<EnemyManager>().spawnTime)
+            {
+                Spawn(i);
+                timerList[i] = 0;
+
+            }
         }
     }
 
-    void Spawn()
+    void Spawn(int index)
     {
-        GameObject enemy = GenerateEnemy(level);
+        GameObject enemy = GenerateEnemy(index);
         enemy.transform.position = spawnPoints[Random.Range(1, spawnPoints.Length)].position;
     }
 
