@@ -467,17 +467,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28457268}
   m_CullTransparentMesh: 1
---- !u!114 &28607838 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6430885920932751704, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
-  m_PrefabInstance: {fileID: 5058496452772446490}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &30923388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,8 +1362,18 @@ MonoBehaviour:
   EnhancePlayerViewBtn: {fileID: 2014428665}
   createTowerBtns: {fileID: 533144078}
   BackBtn_0: {fileID: 2101144912}
-  createTowerButtons: []
-  createTowerImg: []
+  createTowerButtons:
+  - {fileID: 801785037}
+  - {fileID: 1187962484}
+  - {fileID: 1604799695}
+  - {fileID: 2055876319}
+  - {fileID: 1985360646}
+  createTowerImg:
+  - {fileID: 602551106}
+  - {fileID: 1953525026}
+  - {fileID: 1023671451}
+  - {fileID: 1813702173}
+  - {fileID: 1760139438}
   createTowerBtnTexts:
   - {fileID: 1417954146}
   - {fileID: 1454747669}
@@ -1382,7 +1381,7 @@ MonoBehaviour:
   - {fileID: 1217544154}
   - {fileID: 1794841127}
   EnhanceTowerBtns: {fileID: 1076381465}
-  BackBtn_1: {fileID: 2101144912}
+  BackBtn_1: {fileID: 28201096}
   enhanceTowerButtons:
   - {fileID: 735560431}
   - {fileID: 1303696396}
@@ -1395,10 +1394,14 @@ MonoBehaviour:
   - {fileID: 729520527}
   - {fileID: 1139445403}
   - {fileID: 2071286867}
-  enhanceTowerImg: []
-  EnhancePlayerBtns: {fileID: 1076381465}
-  BackBtn_2: {fileID: 28201096}
-  enhancePlayerButtons: []
+  enhanceTowerImg:
+  - {fileID: 1674158637}
+  - {fileID: 1250132239}
+  - {fileID: 1938842365}
+  - {fileID: 1400989252}
+  - {fileID: 28457268}
+  EnhancePlayerBtns: {fileID: 813258899}
+  BackBtn_2: {fileID: 443168502}
 --- !u!4 &68093928
 Transform:
   m_ObjectHideFlags: 0
@@ -16168,35 +16171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0f89891275ae14d9fcdd26f84f8e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &486818373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 54625371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b91447e80c7f4a9fa794a65b9c8c5a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  weaponManager: {fileID: 28607838}
-  level: 0
-  maxHP: 0
-  currentHP: 0
-  maxEXP: 0
-  currentEXP: 0
-  HPText: {fileID: 636790064}
-  EXPText: {fileID: 1272782599}
-  levelText: {fileID: 1034843395}
-  HPBar: {fileID: 213434400}
-  EXPBar: {fileID: 1135931950}
---- !u!4 &486818374 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4101142221526315657, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
-  m_PrefabInstance: {fileID: 5058496452772446490}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &498596379
 GameObject:
   m_ObjectHideFlags: 0
@@ -53956,11 +53930,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!4 &1353082121 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7513808557038666321, guid: 57e6b79e309884fdbb1641304e0c4970, type: 3}
-  m_PrefabInstance: {fileID: 1802776296900219943}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1362992343
 GameObject:
   m_ObjectHideFlags: 0
@@ -55242,60 +55211,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1449688841
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1449688842}
-  - component: {fileID: 1449688843}
-  m_Layer: 7
-  m_Name: Weapon0 (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1449688842
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449688841}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 486818374}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1449688843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449688841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scanner: {fileID: 0}
-  attackType: 1
-  bullet: {fileID: 3365453682046334567, guid: 511b51f2d2c0b4e398e40f5be946c984, type: 3}
-  bulletPool:
-  - {fileID: 3365453682046334567, guid: 511b51f2d2c0b4e398e40f5be946c984, type: 3}
-  damage: 11
-  count: 2
-  speed: 0.01
-  coolTime: 0
-  timer: 0
 --- !u!1 &1452803523
 GameObject:
   m_ObjectHideFlags: 0
@@ -56392,7 +56307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 54625371}
-  zDecreaseRate: 0.01
+  zDecreaseRate: 0.05
 --- !u!81 &1503052063
 AudioListener:
   m_ObjectHideFlags: 0
@@ -101101,7 +101016,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 486818374}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3017660020172138435, guid: 57e6b79e309884fdbb1641304e0c4970, type: 3}
       propertyPath: enemyList.Array.size
@@ -101121,7 +101036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7513808557038666321, guid: 57e6b79e309884fdbb1641304e0c4970, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7513808557038666321, guid: 57e6b79e309884fdbb1641304e0c4970, type: 3}
       propertyPath: m_LocalPosition.y
@@ -101293,6 +101208,46 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2083238215240573666, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
+      propertyPath: HPBar
+      value: 
+      objectReference: {fileID: 213434400}
+    - target: {fileID: 2083238215240573666, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
+      propertyPath: EXPBar
+      value: 
+      objectReference: {fileID: 1135931950}
+    - target: {fileID: 2083238215240573666, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
+      propertyPath: HPText
+      value: 
+      objectReference: {fileID: 636790064}
+    - target: {fileID: 2083238215240573666, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
+      propertyPath: EXPText
+      value: 
+      objectReference: {fileID: 1272782599}
+    - target: {fileID: 2083238215240573666, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
+      propertyPath: levelText
+      value: 
+      objectReference: {fileID: 1034843395}
+    - target: {fileID: 2083238215240573666, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
+      propertyPath: enhancePlayerButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 464745956}
+    - target: {fileID: 2083238215240573666, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
+      propertyPath: enhancePlayerButtons.Array.data[1]
+      value: 
+      objectReference: {fileID: 1394548698}
+    - target: {fileID: 2083238215240573666, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
+      propertyPath: enhancePlayerButtons.Array.data[2]
+      value: 
+      objectReference: {fileID: 102321608}
+    - target: {fileID: 2083238215240573666, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
+      propertyPath: enhancePlayerButtons.Array.data[3]
+      value: 
+      objectReference: {fileID: 1362992345}
+    - target: {fileID: 2083238215240573666, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
+      propertyPath: enhancePlayerButtons.Array.data[4]
+      value: 
+      objectReference: {fileID: 1543709850}
     - target: {fileID: 3582132444019317009, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -101363,17 +101318,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4101142221526315657, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1449688842}
-    - targetCorrespondingSourceObject: {fileID: 4101142221526315657, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1353082121}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5367623323898980014, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 486818373}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d49d50370eda1ed4e9e3b7efa9050674, type: 3}
 --- !u!1001 &5663135727042566548
 PrefabInstance:
@@ -101439,6 +101385,7 @@ SceneRoots:
   - {fileID: 513368530}
   - {fileID: 90271379}
   - {fileID: 976979548}
+  - {fileID: 1802776296900219943}
   - {fileID: 5058496452772446490}
   - {fileID: 4952421409739686763}
   - {fileID: 1503052065}

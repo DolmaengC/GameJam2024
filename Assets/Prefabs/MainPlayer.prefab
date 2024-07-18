@@ -84,6 +84,60 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2686857722821921219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1053163760796159445}
+  - component: {fileID: 2605000126304651846}
+  m_Layer: 7
+  m_Name: Weapon0 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1053163760796159445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2686857722821921219}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4101142221526315657}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2605000126304651846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2686857722821921219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanner: {fileID: 0}
+  attackType: 0
+  bullet: {fileID: 5727991427280380882, guid: e6429c3421d5f3948a405b7aa74eeb5d, type: 3}
+  bulletPool:
+  - {fileID: 5727991427280380882, guid: e6429c3421d5f3948a405b7aa74eeb5d, type: 3}
+  damage: 11
+  count: 2
+  speed: -150
+  coolTime: 0
+  timer: 0
 --- !u!1 &3582132444019317009
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scanner: {fileID: 0}
   attackType: 0
   bullet: {fileID: 5727991427280380882, guid: e6429c3421d5f3948a405b7aa74eeb5d, type: 3}
   bulletPool:
@@ -219,6 +274,62 @@ MonoBehaviour:
   damage: 11
   count: 2
   speed: -150
+  coolTime: 0
+  timer: 0
+--- !u!1 &4788966787201384725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1329310235895561775}
+  - component: {fileID: 4241834036409707315}
+  m_Layer: 7
+  m_Name: Weapon0 (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1329310235895561775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4788966787201384725}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4101142221526315657}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4241834036409707315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4788966787201384725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanner: {fileID: 0}
+  attackType: 0
+  bullet: {fileID: 5727991427280380882, guid: e6429c3421d5f3948a405b7aa74eeb5d, type: 3}
+  bulletPool:
+  - {fileID: 5727991427280380882, guid: e6429c3421d5f3948a405b7aa74eeb5d, type: 3}
+  damage: 11
+  count: 2
+  speed: -150
+  coolTime: 0
+  timer: 0
 --- !u!1 &5367623323898980014
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +344,9 @@ GameObject:
   - component: {fileID: 1039659205993977930}
   - component: {fileID: 4405579463082176235}
   - component: {fileID: 7831665696813597090}
+  - component: {fileID: 2083238215240573666}
+  - component: {fileID: 3401200269511245206}
+  - component: {fileID: 2819864814806180847}
   m_Layer: 7
   m_Name: MainPlayer
   m_TagString: Untagged
@@ -258,6 +372,10 @@ Transform:
   - {fileID: 2124236571062405364}
   - {fileID: 5935760351539087025}
   - {fileID: 4511570979602702151}
+  - {fileID: 6375842860984562166}
+  - {fileID: 1053163760796159445}
+  - {fileID: 1329310235895561775}
+  - {fileID: 2371629378660571719}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &50565393679863451
@@ -409,6 +527,79 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2083238215240573666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5367623323898980014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b91447e80c7f4a9fa794a65b9c8c5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  playerWeaponManager: {fileID: 0}
+  level: 0
+  maxHP: 0
+  currentHP: 0
+  maxEXP: 0
+  currentEXP: 0
+  HPText: {fileID: 0}
+  EXPText: {fileID: 0}
+  levelText: {fileID: 0}
+  HPBar: {fileID: 0}
+  EXPBar: {fileID: 0}
+  enhancePlayerButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  skillPoint: 0
+--- !u!114 &3401200269511245206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5367623323898980014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 383467b26d23e5b42addc9d6ee94975c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanRange: 3
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  nearestTarget: {fileID: 0}
+--- !u!114 &2819864814806180847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5367623323898980014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ba0872c975b4c1ca56ed569b87de96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanner: {fileID: 0}
+  bullets:
+  - {fileID: 5727991427280380882, guid: e6429c3421d5f3948a405b7aa74eeb5d, type: 3}
+  - {fileID: 2345269430745895444, guid: 394b896b477fc92478ada8aff0934bb2, type: 3}
+  - {fileID: 6342589138825617310, guid: 0762f421744259c4bac5f8e0755768e6, type: 3}
+  - {fileID: 2535746432003100217, guid: 588f0b8e990e841a3ab94ad36b08f310, type: 3}
+  - {fileID: 2658078899744796145, guid: f283bcc86b82f43e28f0ed7a92ffbce3, type: 3}
+  weaponManagerList:
+  - {fileID: 6430885920932751704}
+  - {fileID: 3960712306415662174}
+  - {fileID: 2605000126304651846}
+  - {fileID: 4241834036409707315}
+  - {fileID: 3178026168179696174}
 --- !u!1 &6643690400776759982
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,3 +761,111 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &7876341452099231843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6375842860984562166}
+  - component: {fileID: 3960712306415662174}
+  m_Layer: 7
+  m_Name: Weapon0 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6375842860984562166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7876341452099231843}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4101142221526315657}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3960712306415662174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7876341452099231843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanner: {fileID: 0}
+  attackType: 0
+  bullet: {fileID: 5727991427280380882, guid: e6429c3421d5f3948a405b7aa74eeb5d, type: 3}
+  bulletPool:
+  - {fileID: 5727991427280380882, guid: e6429c3421d5f3948a405b7aa74eeb5d, type: 3}
+  damage: 11
+  count: 2
+  speed: -150
+  coolTime: 0
+  timer: 0
+--- !u!1 &9218238302892712497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2371629378660571719}
+  - component: {fileID: 3178026168179696174}
+  m_Layer: 7
+  m_Name: Weapon0 (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2371629378660571719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9218238302892712497}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4101142221526315657}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3178026168179696174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9218238302892712497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d65f36f4554a3d4c878bacdf689365b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanner: {fileID: 0}
+  attackType: 0
+  bullet: {fileID: 5727991427280380882, guid: e6429c3421d5f3948a405b7aa74eeb5d, type: 3}
+  bulletPool:
+  - {fileID: 5727991427280380882, guid: e6429c3421d5f3948a405b7aa74eeb5d, type: 3}
+  damage: 11
+  count: 2
+  speed: -150
+  coolTime: 0
+  timer: 0
