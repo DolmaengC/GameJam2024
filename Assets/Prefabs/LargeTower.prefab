@@ -763,6 +763,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1956468015058345646, guid: 358777b6b68f5e240bc55a122796e28d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2756693583678028152, guid: 358777b6b68f5e240bc55a122796e28d, type: 3}
       propertyPath: m_Name
       value: LagerTowerMid
