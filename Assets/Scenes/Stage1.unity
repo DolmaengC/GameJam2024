@@ -15353,6 +15353,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7926037c99d12048adc6d45c4214008, type: 3}
+--- !u!1 &1211730971 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3757535745101111700, guid: f7926037c99d12048adc6d45c4214008, type: 3}
+  m_PrefabInstance: {fileID: 1211730970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1254494118 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8370686391949076560, guid: fa6c3b7b13ece4f3788401d85389d7df, type: 3}
@@ -20776,6 +20781,10 @@ PrefabInstance:
       propertyPath: timerBar
       value: 
       objectReference: {fileID: 933810680}
+    - target: {fileID: 2400927627346423175, guid: ab4296aa4dc084a78957ff8ed3a0c033, type: 3}
+      propertyPath: mainTower
+      value: 
+      objectReference: {fileID: 1211730971}
     - target: {fileID: 2400927627346423175, guid: ab4296aa4dc084a78957ff8ed3a0c033, type: 3}
       propertyPath: scoreText
       value: 
