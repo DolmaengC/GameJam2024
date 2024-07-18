@@ -5,6 +5,7 @@ using TMPro;
 
 public class HomeGM : MonoBehaviour
 {
+    public int maxStage = 5;
     // 3 parts
     public GameObject homeParts;
     public GameObject settingParts;
@@ -47,6 +48,23 @@ public class HomeGM : MonoBehaviour
         exitButton.onClick.AddListener(OnExitButtonClicked);
 
         UpdateStageText();
+        if (currentStage == 1)
+        {
+            beforeStageButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            beforeStageButton.gameObject.SetActive(true);
+        }
+
+        if (currentStage == maxStage)
+        {
+            nextStageButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            nextStageButton.gameObject.SetActive(true);
+        }
         
     }
 
@@ -92,15 +110,30 @@ public class HomeGM : MonoBehaviour
     {
         currentStage++;
         UpdateStageText();
+        if (currentStage == maxStage)
+        {
+            nextStageButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            nextStageButton.gameObject.SetActive(true);
+        }
+        beforeStageButton.gameObject.SetActive(true); 
     }
 
     void OnBeforeStageButtonClicked()
     {
-        if (currentStage > 1)
+        currentStage--;
+        UpdateStageText();
+        if (currentStage == 1)
         {
-            currentStage--;
-            UpdateStageText();
+            beforeStageButton.gameObject.SetActive(false);
         }
+        else
+        {
+            beforeStageButton.gameObject.SetActive(true);
+        }
+        nextStageButton.gameObject.SetActive(true);
     }
 
     void UpdateStageText()
