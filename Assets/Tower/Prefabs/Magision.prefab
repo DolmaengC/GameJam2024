@@ -192,7 +192,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  unitManager: {fileID: 0}
 --- !u!114 &3626097166881843687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,3 +205,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitCost: 40
+  unitImg: {fileID: 21300000, guid: 68e4bc8e365b90f448c4700fb459d868, type: 3}

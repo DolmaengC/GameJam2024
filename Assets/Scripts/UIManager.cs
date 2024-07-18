@@ -80,6 +80,13 @@ public class UIManager : MonoBehaviour
             if (i < createTowerImg.Length)
             {
                 GameObject item = items[i];
+                if(item.CompareTag("Unit")) {
+                    UnitManager unitManager = item.GetComponent<UnitManager>();
+                    if(unitManager != null) {
+                        createTowerImg[i].GetComponent<Image>().sprite = unitManager.unitImg;
+                        enhanceTowerImg[i].GetComponent<Image>().sprite = unitManager.unitImg;
+                  }
+                }
                 TowerManager towerManager = item.GetComponent<TowerManager>();
 
                 if (towerManager != null)
@@ -98,6 +105,11 @@ public class UIManager : MonoBehaviour
             if (i < createTowerBtnTexts.Length)
             {
                 GameObject item = items[i];
+                if(item.CompareTag("Unit")) {
+                    UnitManager unitManager = item.GetComponent<UnitManager>();
+                    int buildCost = unitManager.unitCost;
+                    createTowerBtnTexts[i].text = item.name + ": " + buildCost.ToString();
+                }
                 TowerManager towerManager = item.GetComponent<TowerManager>();
 
                 if (towerManager != null)

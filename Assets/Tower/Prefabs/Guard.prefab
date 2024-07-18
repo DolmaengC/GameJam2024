@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitCost: 10
+  unitImg: {fileID: 21300000, guid: 69dc6020ac9a1104b80d1952eeae6a45, type: 3}
 --- !u!95 &2698306332314064373
 Animator:
   serializedVersion: 5
@@ -204,4 +205,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  unitManager: {fileID: 0}
