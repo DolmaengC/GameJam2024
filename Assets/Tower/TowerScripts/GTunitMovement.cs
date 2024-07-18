@@ -16,6 +16,7 @@ public class GTunitMovement : MonoBehaviour
     private bool IsDamagging = false;
     SpriteRenderer spriteRenderer;
     private bool alive = true;
+    public UnitManager unitManager;
      void Awake()
     {
         scanner = GetComponent<Scanner>();
@@ -26,6 +27,7 @@ public class GTunitMovement : MonoBehaviour
         animator.SetBool("Lview", false);
         animator.SetBool("IsWalking", false);
         spriteRenderer = GetComponent<SpriteRenderer>();
+        unitManager = GetComponent<UnitManager>();
     }
     void Update()
     {
@@ -106,7 +108,6 @@ public class GTunitMovement : MonoBehaviour
     }
     IEnumerator Damagging(float cooltime) {
         float animationtime = 0.05f;
-        Debug.Log("Damaged");
         unitHP -= 5;
         IsDamagging = true;
         spriteRenderer.color = new Color(1, 0.75f, 0.75f, 1);

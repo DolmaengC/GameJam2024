@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 7120459991494316094}
   - component: {fileID: 2939315328590931371}
   - component: {fileID: 4473604528757682113}
+  - component: {fileID: -539185534639284133}
   m_Layer: 8
   m_Name: Hunter
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scanner: {fileID: 0}
   cooltime: 1.1
+  unitManager: {fileID: 0}
 --- !u!114 &7120459991494316094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c0e8c2002f8e24bab748c3b780d329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hunter: {fileID: 0}
+  unit: {fileID: 0}
+  unitManager: {fileID: 0}
 --- !u!95 &2939315328590931371
 Animator:
   serializedVersion: 5
@@ -189,3 +192,16 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0037850142, y: 0.013248682}
   m_Size: {x: 0.12236285, y: 0.15075362}
   m_Direction: 0
+--- !u!114 &-539185534639284133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226123393074438789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b3d8a98bed47f4f8aca7157ab24883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitCost: 20

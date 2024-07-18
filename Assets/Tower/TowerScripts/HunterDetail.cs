@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class HunterDetail : MonoBehaviour
 {
-    public GTunitMovement Hunter;
-    private float HTspeed = 2f;
-    private float HTattackRange = 1.1f;
-    private float HTcooltime = 0.7f;
-    private int HTHp = 20;
+    public GTunitMovement unit;
+    private float speed = 2f;
+    private float attackRange = 1.1f;
+    private float cooltime = 0.7f;
+    private int Hp = 20;
     private void Awake()
     {
         Debug.Log("Awake");
-        Hunter = GetComponent<GTunitMovement>();
-        Hunter.setUnitSpeed(HTspeed);
-        Hunter.setAttackRange(HTattackRange);
-        Hunter.setCooltime(HTcooltime);
-        Hunter.setUnitHP(HTHp);
+        unit = GetComponent<GTunitMovement>();
+        unit.setUnitSpeed(speed);
+        unit.setAttackRange(attackRange);
+        unit.setCooltime(cooltime);
+        unit.setUnitHP(Hp);
     }
 }
