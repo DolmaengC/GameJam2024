@@ -10,6 +10,8 @@ public class Spawner : MonoBehaviour
 
     public List<float> timerList;
 
+    public float respawnAccelatePercent;
+    
     void Awake()
     {
         spawnPoints = GetComponentsInChildren<Transform>();
@@ -20,21 +22,30 @@ public class Spawner : MonoBehaviour
             enemyPools[i] = new List<GameObject>();
             timerList.Add(0);
         }
+        respawnAccelatePercent = 0;
     }
 
     void Update()
     {
+        float maxTime = 60f;
+        float maxPercent = 30f;
+        float percentPerSecond = maxPercent / maxTime;
+
+        respawnAccelatePercent += Time.deltaTime * percentPerSecond;
 
         for (int i = 0; i < enemyList.Length; i++)
         {
             timerList[i] += Time.deltaTime;
-            if (timerList[i] > enemyList[i].GetComponent<EnemyManager>().spawnTime)
+            float spawnTime = enemyList[i].GetComponent<EnemyManager>().spawnTime;
+            float adjustedSpawnTime = spawnTime * (1 - (respawnAccelatePercent / 100));
+
+            if (timerList[i] > adjustedSpawnTime)
             {
                 Spawn(i);
                 timerList[i] = 0;
-
             }
         }
+
     }
 
     void Spawn(int index)
