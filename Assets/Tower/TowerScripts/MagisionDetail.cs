@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class MagisionDetail : MonoBehaviour
 {
-    public MTunitMovement Magision;
-    private float MGspeed = 2f;
-    private float MGattackRange = 3f;
-    private float MGcooltime = 1.1f;
-    private float MGdamage = 11f;
-    private int MGHp = 10;
-    private int MGcount = 0;
-    private float MGbulletSpeed = 0.2f;
+    public MTunitMovement unit;
+    private float speed = 2f;
+    private float attackRange = 3f;
+    private float cooltime = 1.1f;
+    private float damage = 11f;
+    private int Hp = 10;
+    private int count = 0;
+    private float bulletSpeed = 0.2f;
     private void Awake()
     {
-        Magision = GetComponent<MTunitMovement>();
-        Magision.setAttackRange(MGattackRange);
-        Magision.setCooltime(MGcooltime);
-        Magision.setDamage(MGdamage);
-        Magision.setUnitHP(MGHp);
-        Magision.setUnitSpeed(MGspeed);
-        Magision.setCount(MGcount);
-        Magision.setBulletspeed(MGbulletSpeed);
+        unit = GetComponent<MTunitMovement>();
+        unit.setAttackRange(attackRange);
+        unit.setCooltime(cooltime);
+        unit.setDamage(damage);
+        unit.setUnitHP(Hp);
+        unit.setUnitSpeed(speed);
+        unit.setCount(count);
+        unit.setBulletspeed(bulletSpeed);
     }
 }

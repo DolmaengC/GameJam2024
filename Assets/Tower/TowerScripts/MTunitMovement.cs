@@ -48,7 +48,6 @@ public class MTunitMovement : MonoBehaviour
         }
     }
     void FixedUpdate() {
-        Debug.Log(IsAttacking);
         hits = Physics2D.CircleCastAll(transform.position, attackRange, Vector2.zero, 0, scanner.targetLayer);
         if (hits.Length > 0 && !IsAttacking && alive)
         {
@@ -111,7 +110,6 @@ public class MTunitMovement : MonoBehaviour
     }
     IEnumerator Damagging(float cooltime) {
         float animationtime = 0.05f;
-        Debug.Log("Damaged");
         unitHP -= 5;
         IsDamagging = true;
         spriteRenderer.color = new Color(1, 0.75f, 0.75f, 1);

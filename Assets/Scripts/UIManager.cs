@@ -187,10 +187,43 @@ public class UIManager : MonoBehaviour
     public void SelectItem(int itemIndex)
     {
         GameObject item = items[itemIndex];
-        TowerManager towerManager = item.GetComponent<TowerManager>();
+        if(item.CompareTag("Unit")){
+            UnitManager unitManager = item.GetComponent<UnitManager>();
+            Debug.Log(unitManager.unitCost);
+            if (unitManager != null) {
+                int buildCost = unitManager.unitCost;
+                if (coin >= buildCost) {
+                    if (selectedItem != null) {
+                        Destroy(selectedItem);
+                    }
+                    selectedItem = Instantiate(items[itemIndex]);
+                    selectedItemIdx = itemIndex;
+                    isPlacingItem = true;
 
-        if (towerManager != null)
-        {
+                    selectedCapsuleCollider2D = selectedItem.GetComponent<CapsuleCollider2D>();
+                    selectedScanner = selectedItem.GetComponent<Scanner>();
+                    selectedCanvas = selectedItem.GetComponentInChildren<Canvas>();
+                    if (selectedCapsuleCollider2D != null)
+                    {
+                        selectedCapsuleCollider2D.enabled = false;
+                    }
+                    if (selectedScanner != null)
+                    {
+                        selectedScanner.enabled = false;
+                    }
+                    if (selectedCanvas != null)
+                    {
+                        selectedCanvas.enabled = false;
+                    }
+                } else {
+                    Debug.Log("Not enough coins to build this item.");
+                }
+            }
+        }
+        else{
+            TowerManager towerManager = item.GetComponent<TowerManager>();
+            if (towerManager != null)
+            {
             int buildCost = towerManager.buildCost;
 
             // 코인이 충분한지 확인합니다.
@@ -231,47 +264,85 @@ public class UIManager : MonoBehaviour
                 Debug.Log("Not enough coins to build this item.");
             }
         }
+        }
     }
 
     void PlaceItem(Vector3 position)
     {
         GameObject item = Instantiate(items[selectedItemIdx], position, Quaternion.identity);
-        TowerManager towerManager = item.GetComponent<TowerManager>();
+        if(item.CompareTag("Unit")){
+            UnitManager unitManager = item.GetComponent<UnitManager>();
+            Debug.Log(unitManager.unitCost);
+            if (unitManager != null)
+            {
+                int buildCost = unitManager.unitCost;
+                coin -= buildCost;
+                UpdateCoin();
+            }
+            CapsuleCollider2D itemCapsuleCollider2D = item.GetComponent<CapsuleCollider2D>();
+            Scanner scanner = item.GetComponent<Scanner>();
+            Canvas canvas = item.GetComponentInChildren<Canvas>();
 
-        if (towerManager != null)
-        {
-            int buildCost = towerManager.buildCost;
+            if (itemCapsuleCollider2D != null)
+            {
+                itemCapsuleCollider2D.enabled = true;
+            }
+
+            if (scanner != null)
+            {
+                scanner.enabled = true;
+            }
+
+            if (canvas != null)
+            {
+                canvas.enabled = true;
+            }
+
+            // 초기화
+            Destroy(selectedItem);
+            selectedItem = null;
+            selectedItemIdx = -1;
+            isPlacingItem = false;
+        }
+        else {
+            TowerManager towerManager = item.GetComponent<TowerManager>();
+
+            if (towerManager != null)
+            {
+                int buildCost = towerManager.buildCost;
 
             // 코인 차감
-            coin -= buildCost;
-            UpdateCoin();
+                coin -= buildCost;
+                UpdateCoin();
+            }
+
+            // CapsuleCollider2D, Scanner 및 Canvas 다시 활성화
+            CapsuleCollider2D itemCapsuleCollider2D = item.GetComponent<CapsuleCollider2D>();
+            Scanner scanner = item.GetComponent<Scanner>();
+            Canvas canvas = item.GetComponentInChildren<Canvas>();
+
+            if (itemCapsuleCollider2D != null)
+            {
+                itemCapsuleCollider2D.enabled = true;
+            }
+
+            if (scanner != null)
+            {
+                scanner.enabled = true;
+            }
+
+            if (canvas != null)
+            {
+                canvas.enabled = true;
+            }
+
+            // 초기화
+            Destroy(selectedItem);
+            selectedItem = null;
+            selectedItemIdx = -1;
+            isPlacingItem = false;
         }
-
-        // CapsuleCollider2D, Scanner 및 Canvas 다시 활성화
-        CapsuleCollider2D itemCapsuleCollider2D = item.GetComponent<CapsuleCollider2D>();
-        Scanner scanner = item.GetComponent<Scanner>();
-        Canvas canvas = item.GetComponentInChildren<Canvas>();
-
-        if (itemCapsuleCollider2D != null)
-        {
-            itemCapsuleCollider2D.enabled = true;
-        }
-
-        if (scanner != null)
-        {
-            scanner.enabled = true;
-        }
-
-        if (canvas != null)
-        {
-            canvas.enabled = true;
-        }
-
-        // 초기화
-        Destroy(selectedItem);
-        selectedItem = null;
-        selectedItemIdx = -1;
-        isPlacingItem = false;
+        
     }
 
     // 상태를 증가시키는 버튼 클릭 시 호출되는 메서드
