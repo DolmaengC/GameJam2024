@@ -80,12 +80,20 @@ public class UIManager : MonoBehaviour
             if (i < createTowerImg.Length)
             {
                 GameObject item = items[i];
-                TowerManager towerManager = item.GetComponent<TowerManager>();
+                if(item.CompareTag("Unit")) {
+                    UnitManager unitManager = item.GetComponent<UnitManager>();
+                    if(unitManager != null) {
+                        createTowerImg[i].GetComponent<Image>().sprite = unitManager.unitImg;
+                    }
+                }
+                else {
+                    TowerManager towerManager = item.GetComponent<TowerManager>();
 
-                if (towerManager != null)
-                {
-                    createTowerImg[i].GetComponent<Image>().sprite = towerManager.towerImg;
-                    enhanceTowerImg[i].GetComponent<Image>().sprite = towerManager.towerImg;
+                    if (towerManager != null)
+                    {
+                        createTowerImg[i].GetComponent<Image>().sprite = towerManager.towerImg;
+                        enhanceTowerImg[i].GetComponent<Image>().sprite = towerManager.towerImg;
+                    }
                 }
             }
         }
@@ -98,13 +106,23 @@ public class UIManager : MonoBehaviour
             if (i < createTowerBtnTexts.Length)
             {
                 GameObject item = items[i];
-                TowerManager towerManager = item.GetComponent<TowerManager>();
-
-                if (towerManager != null)
-                {
-                    int buildCost = towerManager.buildCost;
-                    createTowerBtnTexts[i].text = item.name + ": " + buildCost.ToString();
+                if(item.CompareTag("Unit")) {
+                    UnitManager unitManager = item.GetComponent<UnitManager>();
+                    if(unitManager != null) {
+                        int buildCost = unitManager.unitCost;
+                        createTowerBtnTexts[i].text = item.name + ": " + buildCost.ToString();
+                    }
                 }
+                else{
+                    TowerManager towerManager = item.GetComponent<TowerManager>();
+
+                    if (towerManager != null)
+                    {
+                        int buildCost = towerManager.buildCost;
+                        createTowerBtnTexts[i].text = item.name + ": " + buildCost.ToString();
+                    }
+                }
+
             }
         }
     }
