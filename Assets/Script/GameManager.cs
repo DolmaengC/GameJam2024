@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public int score;
     public TMP_Text scoreText;
     bool isPaused;
+    public GameObject mainTower;
+    public TowerManager mainTowerManager;
 
     void Awake()
     {
@@ -45,6 +47,7 @@ public class GameManager : MonoBehaviour
         startButton.onClick.AddListener(TogglePause);
         restartButton.onClick.AddListener(OnRestartButtonClicked); // Restart 버튼에 리스너 추가
         exitButton.onClick.AddListener(OnGoHomeButtonClicked);
+        mainTowerManager = mainTower.GetComponent<TowerManager>();
     }
 
     void Update()
@@ -52,6 +55,10 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             TogglePause();
+        }
+        if (mainTowerManager.towerCurrentHp <= 0) 
+        {
+            EndGame(false);
         }
     }
 
