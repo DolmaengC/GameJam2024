@@ -47,7 +47,7 @@ public class GTunitMovement : MonoBehaviour
         {
             IsAttacking = true;
             animator.SetTrigger("Attacking");
-            Invoke("killing", 0.8f);
+            Invoke("killing", cooltime*0.73f);
             StartCoroutine(Attacking(cooltime));
         }
     }
